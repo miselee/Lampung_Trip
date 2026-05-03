@@ -1,0 +1,123 @@
+.admin-hero {
+  height: 155px;
+  background: linear-gradient(rgba(47, 159, 25, 0.7), rgba(20, 80, 10, 0.8)), url('../img/pahawang.png') center/cover;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #fff;
+  margin-bottom: 28px;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat-num {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-top: 6px;
+}
+
+.hero-divider {
+  width: 1px;
+  height: 55px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.list-card {
+  padding: 20px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.list-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #f8f8f8;
+  font-size: 13px;
+}
+
+.list-row:last-child {
+  border-bottom: none;
+}
+
+.list-row-name {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.list-row-sub {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+.trip-agenda-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f8f8f8;
+  font-size: 13px;
+}
+
+.trip-agenda-item:last-child {
+  border-bottom: none;
+}
+
+.trip-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-full {
+  background: #2F9F19;
+}
+
+.dot-available {
+  background: #f6ad55;
+}
+
+.dot-open {
+  background: #a0aec0;
+}
+
+.trip-date {
+  font-weight: 600;
+  color: #2d3748;
+  min-width: 52px;
+}
+
+.trip-name-text {
+  flex: 1;
+  color: #555;
+}
+
+.trip-quota-text {
+  font-size: 12px;
+  color: #aaa;
+}

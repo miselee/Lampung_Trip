@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Open Trip | Lampung Trip</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-destinasi.css">
+  <link rel="stylesheet" href="css/admin-opentrip.css">
+</head>
+
+<body>
+
+  <div class="admin-wrapper">
+
+    <aside class="sidebar">
+      <div class="sidebar-logo">Lampung Trip</div>
+      <nav class="sidebar-menu">
+        <a href="admin.php" class="menu-item">Overview</a>
+        <a href="admin_destinasi.html" class="menu-item">Destinasi</a>
+        <a href="admin_opentrip.html" class="menu-item active">Open Trip</a>
+        <a href="admin_pendaftaran.html" class="menu-item">Pendaftaran <span class="menu-badge">2</span></a>
+        <a href="admin_pembayaran.html" class="menu-item">Pembayaran <span class="menu-badge">2</span></a>
+      </nav>
+      <a href="logout.php" class="sidebar-logout">Logout</a>
+    </aside>
+
+    <main class="admin-main">
+      <div class="topbar">
+        <span class="topbar-brand">Lampung Trip <span>Admin</span></span>
+        <span class="topbar-page">Kelola Open Trip</span>
+      </div>
+
+      <div class="admin-content">
+
+        <div class="page-header">
+          <h2>Daftar Open Trip</h2>
+          <a href="#modal-tambah-trip" class="btn-primary">+ Tambah Trip</a>
+        </div>
+
+        <div class="trip-grid">
+
+          <div class="trip-card">
+            <img class="trip-card-img" src="img/pahawang.png" alt="Open Trip Pahawang">
+            <div class="trip-card-body">
+              <div class="trip-card-title">Open Trip Pahawang</div>
+              <div class="trip-card-meta">&bull; 10 Mei 2026</div>
+              <div class="trip-card-meta">&bull; 8/15 peserta</div>
+              <div class="trip-card-meta">&bull; Rp 350.000 / orang</div>
+              <div class="trip-card-footer">
+                <span class="badge badge-aktif">Aktif</span>
+                <div class="action-btns">
+                  <a href="#" class="btn-edit">Edit</a>
+                  <a href="#" class="btn-danger">Hapus</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="trip-card">
+            <img class="trip-card-img" src="img/krakatau.jpg" alt="Open Trip Krakatau">
+            <div class="trip-card-body">
+              <div class="trip-card-title">Open Trip Krakatau</div>
+              <div class="trip-card-meta">&bull; 17 Mei 2026</div>
+              <div class="trip-card-meta">&bull; 3/10 peserta</div>
+              <div class="trip-card-meta">&bull; Rp 500.000 / orang</div>
+              <div class="trip-card-footer">
+                <span class="badge badge-aktif">Aktif</span>
+                <div class="action-btns">
+                  <a href="#" class="btn-edit">Edit</a>
+                  <a href="#" class="btn-danger">Hapus</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="trip-card">
+            <img class="trip-card-img" src="img/seminung.png" alt="Open Trip Seminung">
+            <div class="trip-card-body">
+              <div class="trip-card-title">Open Trip Seminung</div>
+              <div class="trip-card-meta">&bull; 24 Mei 2026</div>
+              <div class="trip-card-meta">&bull; 0/12 peserta</div>
+              <div class="trip-card-meta">&bull; Rp 450.000 / orang</div>
+              <div class="trip-card-footer">
+                <span class="badge badge-aktif">Aktif</span>
+                <div class="action-btns">
+                  <a href="#" class="btn-edit">Edit</a>
+                  <a href="#" class="btn-danger">Hapus</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="trip-card">
+            <img class="trip-card-img" src="img/kambas.png" alt="Open Trip Way Kambas">
+            <div class="trip-card-body">
+              <div class="trip-card-title">Open Trip Way Kambas</div>
+              <div class="trip-card-meta">&bull; 31 Mei 2026</div>
+              <div class="trip-card-meta">&bull; 0/20 peserta</div>
+              <div class="trip-card-meta">&bull; Rp 400.000 / orang</div>
+              <div class="trip-card-footer">
+                <span class="badge badge-aktif">Aktif</span>
+                <div class="action-btns">
+                  <a href="#" class="btn-edit">Edit</a>
+                  <a href="#" class="btn-danger">Hapus</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="trip-card">
+            <img class="trip-card-img" src="img/pahawang.png" alt="Open Trip Pahawang">
+            <div class="trip-card-body">
+              <div class="trip-card-title">Open Trip Pahawang</div>
+              <div class="trip-card-meta">&bull; 05 Apr 2026</div>
+              <div class="trip-card-meta">&bull; 15/15 peserta</div>
+              <div class="trip-card-meta">&bull; Rp 350.000 / orang</div>
+              <div class="trip-card-footer">
+                <span class="badge badge-rejected">Penuh</span>
+                <div class="action-btns">
+                  <a href="#" class="btn-edit">Edit</a>
+                  <a href="#" class="btn-danger">Hapus</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="trip-card">
+            <img class="trip-card-img" src="img/mahitam.jpg" alt="Open Trip Mahitam">
+            <div class="trip-card-body">
+              <div class="trip-card-title">Open Trip Mahitam</div>
+              <div class="trip-card-meta">&bull; 20 Mar 2026</div>
+              <div class="trip-card-meta">&bull; 12/12 peserta</div>
+              <div class="trip-card-meta">&bull; Rp 300.000 / orang</div>
+              <div class="trip-card-footer">
+                <span class="badge badge-selesai">Selesai</span>
+                <div class="action-btns">
+                  <a href="#" class="btn-edit">Edit</a>
+                  <a href="#" class="btn-danger">Hapus</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <div id="modal-tambah-trip" class="modal-overlay">
+    <div class="modal-box modal-lg">
+      <div class="modal-header">Tambah Open Trip Baru</div>
+
+      <div class="form-row">
+
+        <div class="form-col">
+          <div class="form-group">
+            <label>Nama Trip</label>
+            <input type="text" class="form-input" placeholder="Contoh: Open Trip Pahawang">
+          </div>
+
+          <div class="form-group">
+            <label>Destinasi Utama</label>
+            <select class="form-input">
+              <option>Pantai Pahawang</option>
+              <option>Gunung Krakatau</option>
+              <option>Gunung Seminung</option>
+              <option>Way Kambas</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Tanggal Keberangkatan</label>
+            <input type="date" class="form-input">
+          </div>
+
+          <div class="form-group">
+            <label>Kuota Peserta Maksimal</label>
+            <input type="number" class="form-input" placeholder="Contoh: 15">
+          </div>
+        </div>
+
+        <div class="form-col">
+          <div class="form-group">
+            <label>Harga per Orang (Rp)</label>
+            <input type="number" class="form-input" placeholder="Contoh: 350000">
+          </div>
+
+          <div class="form-group">
+            <label>Foto Banner Trip</label>
+            <div class="file-upload-box">
+              <button type="button">Pilih File</button>
+              <span>Belum ada file yang dipilih</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Fasilitas & Deskripsi Singkat</label>
+            <textarea class="form-input" rows="4"
+              placeholder="Sebutkan fasilitas seperti: Snorkeling, Makan siang, dll"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <a href="#" class="btn-cancel">Batal</a>
+        <a href="#" class="btn-submit">Simpan Trip</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

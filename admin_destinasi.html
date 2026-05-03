@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Destinasi | Lampung Trip</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-destinasi.css">
+</head>
+
+<body>
+
+  <div class="admin-wrapper">
+
+    <aside class="sidebar">
+      <div class="sidebar-logo">Lampung Trip</div>
+      <nav class="sidebar-menu">
+        <a href="admin.php" class="menu-item">Overview</a>
+        <a href="admin_destinasi.html" class="menu-item active">Destinasi</a>
+        <a href="admin_opentrip.html" class="menu-item">Open Trip</a>
+        <a href="admin_pendaftaran.html" class="menu-item">Pendaftaran <span class="menu-badge">2</span></a>
+        <a href="admin_pembayaran.html" class="menu-item">Pembayaran <span class="menu-badge">2</span></a>
+      </nav>
+      <a href="logout.php" class="sidebar-logout">Logout</a>
+    </aside>
+
+    <main class="admin-main">
+      <div class="topbar">
+        <span class="topbar-brand">Lampung Trip <span>Admin</span></span>
+        <span class="topbar-page">Kelola Destinasi</span>
+      </div>
+
+      <div class="admin-content">
+
+        <div class="page-header">
+          <h2>Daftar Destinasi</h2>
+          <a href="#modal-tambah-destinasi" class="btn-primary">+ Tambah Destinasi</a>
+        </div>
+
+        <div class="admin-table-wrapper admin-box">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Foto</th>
+                <th>Nama Destinasi</th>
+                <th>Lokasi</th>
+                <th>Kategori</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img class="table-img" src="img/pahawang.png" alt="Pantai Pahawang"></td>
+                <td>Pantai Pahawang</td>
+                <td>Pesawaran</td>
+                <td><span class="badge badge-aktif">Pantai</span></td>
+                <td>
+                  <div class="action-btns">
+                    <a href="#" class="btn-edit">Edit</a>
+                    <a href="#" class="btn-danger">Hapus</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><img class="table-img" src="img/krakatau.jpg" alt="Gunung Krakatau"></td>
+                <td>Gunung Krakatau</td>
+                <td>Pesisir Utara</td>
+                <td><span class="badge badge-aktif">Gunung</span></td>
+                <td>
+                  <div class="action-btns">
+                    <a href="#" class="btn-edit">Edit</a>
+                    <a href="#" class="btn-danger">Hapus</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><img class="table-img" src="img/seminung.png" alt="Gunung Seminung"></td>
+                <td>Gunung Seminung</td>
+                <td>Liwa</td>
+                <td><span class="badge badge-aktif">Gunung</span></td>
+                <td>
+                  <div class="action-btns">
+                    <a href="#" class="btn-edit">Edit</a>
+                    <a href="#" class="btn-danger">Hapus</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><img class="table-img" src="img/mahitam.jpg" alt="Pantai Mahitam"></td>
+                <td>Pantai Mahitam</td>
+                <td>Pesawaran</td>
+                <td><span class="badge badge-aktif">Pantai</span></td>
+                <td>
+                  <div class="action-btns">
+                    <a href="#" class="btn-edit">Edit</a>
+                    <a href="#" class="btn-danger">Hapus</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><img class="table-img" src="img/kambas.png" alt="Way Kambas"></td>
+                <td>Way Kambas</td>
+                <td>Lampung Timur</td>
+                <td><span class="badge badge-aktif">Taman Nasional</span></td>
+                <td>
+                  <div class="action-btns">
+                    <a href="#" class="btn-edit">Edit</a>
+                    <a href="#" class="btn-danger">Hapus</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <div id="modal-tambah-destinasi" class="modal-overlay">
+    <div class="modal-box modal-md">
+      <div class="modal-header">Tambah Destinasi Baru</div>
+
+      <div class="form-group">
+        <label>Foto Destinasi</label>
+        <div class="file-upload-box">
+          <button type="button">Pilih File</button>
+          <span>Belum ada file yang dipilih</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Nama Destinasi</label>
+        <input type="text" class="form-input" placeholder="Masukkan nama destinasi">
+      </div>
+
+      <div class="form-group">
+        <label>Lokasi</label>
+        <input type="text" class="form-input" placeholder="Contoh: Pesawaran">
+      </div>
+
+      <div class="form-group">
+        <label>Kategori</label>
+        <select class="form-input">
+          <option>Pantai</option>
+          <option>Gunung</option>
+          <option>Taman Nasional</option>
+          <option>Pulau</option>
+        </select>
+      </div>
+
+      <div class="modal-footer">
+        <a href="#" class="btn-cancel">Batal</a>
+        <a href="#" class="btn-primary">Simpan Destinasi</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

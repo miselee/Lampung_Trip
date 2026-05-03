@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Pembayaran | Lampung Trip</title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/admin-pembayaran.css">
+</head>
+
+<body>
+
+  <div class="admin-wrapper">
+
+    <aside class="sidebar">
+      <div class="sidebar-logo">Lampung Trip</div>
+      <nav class="sidebar-menu">
+        <a href="admin.php" class="menu-item">Overview</a>
+        <a href="admin_destinasi.html" class="menu-item">Destinasi</a>
+        <a href="admin_opentrip.html" class="menu-item">Open Trip</a>
+        <a href="admin_pendaftaran.html" class="menu-item">Pendaftaran <span class="menu-badge">2</span></a>
+        <a href="admin_pembayaran.html" class="menu-item active">Pembayaran <span class="menu-badge">2</span></a>
+      </nav>
+      <a href="logout.php" class="sidebar-logout">Logout</a>
+    </aside>
+
+    <main class="admin-main">
+      <div class="topbar">
+        <span class="topbar-brand">Lampung Trip <span>Admin</span></span>
+        <span class="topbar-page">Validasi Pembayaran</span>
+      </div>
+
+      <div class="admin-content">
+
+        <div class="page-header">
+          <h2>Validasi Pembayaran</h2>
+        </div>
+
+        <div class="split-panel">
+
+          <div class="payment-list-box admin-box">
+            <div class="payment-list-title">Semua Pembayaran</div>
+
+            <a href="#" class="payment-item active">
+              <div class="payment-item-name">Budi Santoso</div>
+              <div class="payment-item-sub">&bull; Open Trip Pahawang &bull; 01 Mei 2026</div>
+              <span class="badge badge-pending">Menunggu</span>
+            </a>
+
+            <a href="#" class="payment-item">
+              <div class="payment-item-name">Dewi Rahayu</div>
+              <div class="payment-item-sub">&bull; Open Trip Krakatau &bull; 02 Mei 2026</div>
+              <span class="badge badge-pending">Menunggu</span>
+            </a>
+
+            <a href="#" class="payment-item">
+              <div class="payment-item-name">Rina Kartika</div>
+              <div class="payment-item-sub">&bull; Open Trip Krakatau &bull; 28 Apr 2026</div>
+              <span class="badge badge-paid">Lunas</span>
+            </a>
+
+            <a href="#" class="payment-item">
+              <div class="payment-item-name">Hadi Wijaya</div>
+              <div class="payment-item-sub">&bull; Open Trip Pahawang &bull; 29 Apr 2026</div>
+              <span class="badge badge-paid">Lunas</span>
+            </a>
+
+          </div>
+
+          <div class="payment-detail-box admin-box">
+            <div class="payment-detail-header">
+              <div class="payment-detail-name">Budi Santoso</div>
+              <div class="payment-detail-trip">Open Trip Pahawang &bull; 2 orang</div>
+            </div>
+
+            <div class="payment-info-row">
+              <div class="payment-info-box">
+                <div class="payment-info-label">Total Pembayaran</div>
+                <div class="payment-info-value">Rp 700.000</div>
+              </div>
+              <div class="payment-info-box">
+                <div class="payment-info-label">Tanggal Upload</div>
+                <div class="payment-info-value">01 Mei 2026</div>
+              </div>
+              <div class="payment-info-box">
+                <div class="payment-info-label">Status</div>
+                <div class="payment-info-value">
+                  <span class="badge badge-pending">Menunggu</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-bottom:10px; font-size:14px; font-weight:600; color:#2d3748;">
+              Bukti Transfer
+            </div>
+            <div class="bukti-placeholder">
+              Bukti transfer belum diunggah / akan tampil di sini
+            </div>
+
+            <div class="payment-action-btns">
+              <a href="#" class="btn-approve">
+                Konfirmasi Lunas
+              </a>
+              <a href="#" class="btn-reject">
+                Tolak Pembayaran
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+
+</html>
