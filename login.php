@@ -22,7 +22,7 @@ if(isset($_POST['email'])){
         }
         exit;
     } else {
-        $error = "Login gagal!";
+        $error = "Invalid email or password";
     }
 }
 ?>
