@@ -13,6 +13,7 @@
         <a href="user.php">Beranda</a>
         <a href="destinasi.html">Destinasi</a>
         <a class="active" href="open_trip.html">Open Trip</a>
+        <a href="logout.php">Logout</a>
     </div>
 </div>
 
@@ -108,7 +109,7 @@
             <label>Tanggal</label>
             <input type="text" value="25 - 26 Juni 2026">
 
-            <button class="btn">Daftar Sekarang</button>
+            <button class="btn" onclick="openOverlay()">Daftar Sekarang</button>
             <button class="btn-wa">WhatsApp</button>
         </div>
 
@@ -132,9 +133,43 @@
             </div>
         </div>
 
+        <div id="overlay" class="overlay">
+            <div class="overlay-box">
+                
+                <span class="close" onclick="closeOverlay()">x</span>
+
+                <h2>Pendaftaran Open Trip</h2>
+                <p>Open Trip Pulau Pahawang</p>
+
+                <form class="form-grid">
+                    <label>Nama Lengkap</label>
+                    <input type="text" name="nama" placeholder="Masukkan Nama Lengkap" required>
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="Masukkan Email" required>
+                    <label>No. WhatsApp</label>
+                    <input type="text" name="whatsapp" placeholder="Masukkan No. WhatsApp" required>
+                    <label>Jumlah Peserta</label>
+                    <input type="number" name="jumlah" placeholder="Masukkan Jumlah Peserta" required>
+                    <label>Catatan (Opsional)</label>
+                    <input type="text" name="catatan" placeholder="Masukkan Catatan (Opsional)">
+                </form>
+
+                <button class="btn-submit">Lanjut ke Pembayaran</button>
+            </div>
+        </div>
+
     </div>
 
 </div>
 
+<script>
+function openOverlay() {
+  document.getElementById("overlay").style.display = "block";
+}
+
+function closeOverlay() {
+  document.getElementById("overlay").style.display = "none";
+}
+</script>
 </body>
 </html>
