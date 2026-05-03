@@ -1,0 +1,133 @@
+body {
+    height: 100vh;
+    background: url('../img/background.png') no-repeat center;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 60px 120px;
+}
+
+.left-side {
+    width: 50%;
+    color: #fff;
+}
+
+.left-side h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: black;
+}
+
+.left-side h3 {
+    font-size: 30px;
+    margin-top: 10px;
+    color: rgba(0, 0, 0, 0.553);
+}
+
+.left-side p {
+    margin-top: 15px;
+    line-height: 1.6;
+    font-size: 18px;
+    max-width: 400px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.login-box {
+    width: 380px;
+    padding: 30px;
+    background: rgba(255,255,255,0.25);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+}
+
+.login-box label {
+    font-size: 14px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0 15px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.9);
+}
+
+.forgot-password {
+    display: block;
+    font-size: 12px;
+    text-align: right;
+    margin-bottom: 10px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #2F9F19;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    transform: scale(1.03);
+    background: #27ae60;
+}
+
+.divider {
+    text-align: center;
+    margin: 15px 0;
+    align-items: center;
+    display: flex;
+    color: rgba(255,255,255,0.8);
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #ccc
+}
+
+.divider::before {
+    margin-right: 10px;
+}
+
+.divider::after {
+    margin-left: 10px;
+}
+
+.google {
+    text-align: center;
+    font-size: 14px;
+}
+
+.SignUp {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.SignUp a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
