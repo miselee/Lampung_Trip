@@ -4,7 +4,8 @@ session_start();
 $users = [
     "admin@gmail.com" => ["password" => "123", "role" => "admin"],
     "fen@gmail.com" => ["password" => "456", "role" => "user"],
-    "maul@gmail.com" => ["password" => "1234", "role" => "user"]
+    "maul@gmail.com" => ["password" => "1234", "role" => "user"],
+    "misele@gmail.com" => ["password" => "789", "role" => "user"]
 ];
 
 if (isset($_POST['email'])) {

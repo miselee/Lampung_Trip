@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lampung Trip - Destinasi</title>
 
-  <!-- FIX DI SINI -->
   <link rel="stylesheet" href="css/detail_destinasi.css">
 </head>
 <body>
@@ -13,10 +12,10 @@
 <div class="navbar">
   <div class="logo">Lampung Trip</div>
   <div class="menu">
-    <a href="#">Beranda</a>
-    <a href="#" class="active">Destinasi</a>
-    <a href="#">Open Trip</a>
-    <a href="#">Tentang Kami</a>
+    <a href="user.php">Beranda</a>
+    <a href="destinasi.html" class="active">Destinasi</a>
+    <a href="open_trip.html">Open Trip</a>
+    <a href="logout.php">Logout</a>
   </div>
 </div>
 
@@ -26,10 +25,10 @@
 </div>
 
 <div class="thumbs">
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')"></div>
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')"></div>
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21')"></div>
-  <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')"></div>
+ <img src="img/pahawang.png" onclick="changeImg(this)">
+<img src="img/pahawang.png" onclick="changeImg(this)">
+<img src="img/pahawang.png" onclick="changeImg(this)">
+  <img src="img/pahawang.png" onclick="changeImg(this)">
 </div>
 
 <div class="container">
@@ -64,7 +63,7 @@
     </div>
   </div>
 
-  <div class="btn"></div>
+  <a class="btn" href="detail_trip.html">Pesan Sekarang</a>
 </div>
 
 </body>

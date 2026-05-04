@@ -73,6 +73,14 @@ if(!isset($_SESSION['email']) || $_SESSION['role'] != "user"){
                     <p>Pesawaran</p>
                     <span>⭐ 4.9 (280 ulasan)</span>
                 </div>
+
+                <div class="card">
+                    <img src="img/mahitam.jpg">
+                    <h3>Pantai Mahitam</h3>
+                    <p>Pesawaran</p>
+                    <span>⭐ 4.9 (280 ulasan)</span>
+                </div>
+
             </div>
 
             <button class="next">></button>
