@@ -1,5 +1,5 @@
 body {
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     background: #f5f5f5;
 }
 
@@ -17,7 +17,8 @@ body {
     gap: 20px;
 }
 
-.left-top {
+.left-top,
+.left-bottom {
     display: flex;
     gap: 20px;
 }
@@ -26,7 +27,9 @@ body {
     flex: 1.2;
 }
 
-.middle {
+.middle,
+.desc-box,
+.itinerary-box {
     flex: 1;
 }
 
@@ -60,9 +63,8 @@ body {
 }
 
 .desc {
-    margin: 10px 0;
+    margin: 10px 0 20px;
     color: #555;
-    margin-bottom: 20px;
 }
 
 .fasilitas-box {
@@ -83,51 +85,41 @@ body {
 .left-bottom {
     display: flex;
     gap: 20px;
+    align-items: flex-start;
 }
 
-.desc-box, .itinerary-box {
-    flex: 1;
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-}
 
-.timeline {
-    list-style: none;
-    padding-left: 10px;
-}
-
-.timeline li {
-    position: relative;
-    margin-bottom: 15px;
-    padding-left: 20px;
-}
-
-.timeline li::before {
-    content: "";
-    width: 10px;
-    height: 10px;
-    background: #3498db;
-    border-radius: 50%;
-    position: absolute;
-    left: 0;
-    top: 5px;
-}
-
-.right {
-    width: 320px;
+.left-info {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     flex-shrink: 0;
-    position: sticky;
-    top: 20px;
-    height: fit-content;
+}
+
+
+.desc-box,
+.highlight-box,
+.itinerary-box {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.itinerary-box {
+    flex: 1;
+}
+.card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
 }
 
 .card {
-    background: white;
     padding: 20px;
-    border-radius: 12px;
     margin-bottom: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .card h3 {
@@ -138,32 +130,52 @@ body {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    max-width: 260px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.right {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+.btn,
+.btn-wa {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-weight: 600;
 }
 
 .btn {
-    width: 100%;
-    padding: 12px;
     background: #27ae60;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    margin-top: 10px;
-    cursor: pointer;
 }
 
 .btn-wa {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
+    background: #25D366;
 }
 
 .bank {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding-left: 20px;
     margin-top: 15px;
+}
+
+.bank img {
+    width: 60px;
 }
 
 .bank p {
@@ -173,46 +185,40 @@ body {
 
 .bank small {
     display: block;
-    margin-top: 3px; 
+    margin-top: 3px;
     color: gray;
-}
-
-.bank img {
-    width: 60px;
 }
 
 .overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
     display: none;
     z-index: 999;
     overflow-y: auto;
 }
 
 .overlay-box {
-    background: white;
+    background: #fff;
+    width: 650px;
+    max-width: 90%;
+    margin: 5% auto;
     padding: 35px 40px;
     border-radius: 12px;
-    width: 650px;
-    margin: 5% auto;
     position: relative;
-    max-width: 90%;
-    overflow-y: auto;
+}
+
+.overlay-box h2,
+.overlay-box p {
+    text-align: center;
 }
 
 .overlay-box h2 {
-    text-align: center;
     margin-bottom: 5px;
 }
 
 .overlay-box p {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 25px;
+    margin: 0 0 25px;
     color: #555;
     font-weight: bold;
 }
@@ -237,8 +243,8 @@ body {
 }
 
 .form-grid input {
-    padding: 10px;
     width: 100%;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
 }
@@ -248,132 +254,8 @@ body {
     margin: 30px auto 0;
     padding: 12px 25px;
     background: #2D9CDB;
-    color: white;
+    color: #fff;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-}
-
-.content {
-    display: flex;
-    gap: 40px;
-}
-
-.left,
-.right {
-    flex: 1;
-}
-
-.left h3,
-.right h3 {
-    font-size: 18px;
-    margin-bottom: 16px;
-}
-
-.left {
-    padding-right: 20px;
-    border-right: 1px solid #eee;
-}
-
-.detail {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    color: #555;
-}
-
-.total {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 14px;
-    font-weight: 700;
-}
-
-.right {
-    border: 1px solid #eee;
-    border-radius: 10px;
-    padding: 20px;
-    background: #fafafa;
-}
-
-.bank-payment {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.bank-payment img {
-    width: 60px;
-    margin-top: 4px; 
-}
-
-.bank-payment p {
-    margin: 0;
-    font-weight: 700;
-}
-
-.bank-payment small {
-    display: block;
-    margin-top: 3px;
-    color: #777;
-}
-
-.rekening {
-    font-weight: 700;
-    font-size: 14px;
-}
-
-.bank-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.note {
-    font-size: 12px;
-    color: #777;
-    margin-bottom: 10px;
-}
-
-.upload label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
-}
-
-.file-input {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  border: 1px solid #ddd;
-  padding: 8px;
-  border-radius: 6px;
-  background: #fff;
-}
-
-.file-input button {
-  background: #3aa0d8;
-  color: #fff;
-  border: none;
-  padding: 6px 14px;
-  border-radius: 6px;
-}
-
-.file-input span {
-  font-size: 13px;
-  color: #888;
-}
-
-.confirm {
-  margin-top: 20px;
-}
-
-.confirm button {
-  width: 100%;
-  background: #2ecc71;
-  border: none;
-  padding: 12px;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 15px;
 }

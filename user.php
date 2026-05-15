@@ -23,8 +23,8 @@ if(!isset($_SESSION['email']) || $_SESSION['role'] != "user"){
         <h2>Lampung Trip</h2>
         <div>
             <a class="active" href="user.php">Beranda</a>
-            <a href="destinasi.html">Destinasi</a>
-            <a href="open_trip.html">Open Trip</a>
+            <a href="destinasi.php">Destinasi</a>
+            <a href="open_trip.php">Open Trip</a>
             <a href="logout.php">Logout</a>
         </div>
     </div>
