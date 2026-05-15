@@ -1,30 +1,29 @@
 <?php
 session_start();
+include "config.php";
 
-$users = [
-    "admin@gmail.com" => ["password" => "123", "role" => "admin"],
-    "fen@gmail.com" => ["password" => "456", "role" => "user"],
-    "maul@gmail.com" => ["password" => "1234", "role" => "user"],
-    "misele@gmail.com" => ["password" => "789", "role" => "user"]
-];
-
-if (isset($_POST['email'])) {
+if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if (isset($users[$email]) && $users[$email]['password'] == $password) {
+    $query = "SELECT * FROM users WHERE email='$email'";
+    $result = mysqli_query($conn, $query);
+    $user = mysqli_fetch_assoc($result);
 
-        $_SESSION['email'] = $email;
-        $_SESSION['role'] = $users[$email]['role'];
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['login'] = true;
+        $_SESSION['role'] = $user['role'];
 
-        if ($users[$email]['role'] == "admin") {
-            header("Location: admin.php");
+        if ($user['role'] == 'admin') {
+            header('Location: admin.php');
         } else {
-            header("Location: user.php");
+            header('Location: user.php');
         }
         exit;
-    } else {
-        $error = "Invalid email or password";
+    }
+
+    else {
+        $error = "Invalid email or password.";
     }
 }
 ?>
