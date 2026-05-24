@@ -131,6 +131,11 @@ switch ($route) {
         tambahtrip();
         break;
 
+    case 'admin/edittrip':
+        require_once 'app/controllers/admin.php';
+        edittrip();
+        break;
+
     case 'admin/hapustrip':
         require_once 'app/controllers/admin.php';
         hapustrip();

@@ -139,6 +139,60 @@ function tambahtrip()
     exit;
 }
 
+function edittrip()
+{
+    global $conn;
+    requireAdmin();
+
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        header('Location: ' . BASE_URL . 'admin/opentrip');
+        exit;
+    }
+
+    $id = intval($_POST['id'] ?? 0);
+
+    $tripLama = TripModel::getByIdOpenTrip($conn, $id);
+
+    if (!$tripLama) {
+        $_SESSION['error'] = 'Trip tidak ditemukan.';
+        header('Location: ' . BASE_URL . 'admin/opentrip');
+        exit;
+    }
+
+    $data = [
+        'nama'         => trim($_POST['nama'] ?? ''),
+        'destinasi_id' => intval($_POST['destinasi_id'] ?? 0),
+        'tanggal'      => $_POST['tanggal'] ?? '',
+        'durasi'       => trim($_POST['durasi'] ?? ''),
+        'harga'        => floatval($_POST['harga'] ?? 0),
+        'kuota'        => intval($_POST['kuota'] ?? 0),
+        'deskripsi'    => trim($_POST['deskripsi'] ?? ''),
+        'fasilitas'    => trim($_POST['fasilitas'] ?? ''),
+    ];
+
+    $foto = $tripLama['foto'];
+
+    if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
+
+        $ext      = pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION);
+
+        $filename = 'trip_' . time() . '.' . $ext;
+
+        move_uploaded_file(
+            $_FILES['foto']['tmp_name'],
+            'assets/img/' . $filename
+        );
+
+        $foto = $filename;
+    }
+
+    TripModel::update($conn, $id, $data, $foto);
+
+    $_SESSION['success'] = 'Open Trip berhasil diperbarui.';
+
+    header('Location: ' . BASE_URL . 'admin/opentrip');
+    exit;
+}
 
 function hapustrip()
 {

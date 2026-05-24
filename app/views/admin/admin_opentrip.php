@@ -62,14 +62,91 @@
                   ?>
                   <span class="badge <?= $badgeMap[$trip['status']] ?? 'badge-aktif' ?>"><?= $labMap[$trip['status']] ?? ucfirst($trip['status']) ?></span>
                   <div class="action-btns">
+                    <a href="#modal-edit-trip-<?= $trip['id'] ?>" class="btn-edit"> Edit </a>
                     <form method="POST" action="<?= BASE_URL ?>admin/hapustrip" onsubmit="return confirm('Hapus trip ini?')" style="display:inline;">
                       <input type="hidden" name="id" value="<?= $trip['id'] ?>">
-                      <button type="submit" class="btn-danger">Hapus</button>
+                      <button type="submit" class="btn-danger"> Hapus </button>
                     </form>
                   </div>
                 </div>
               </div>
             </div>
+
+            <div id="modal-edit-trip-<?= $trip['id'] ?>" class="modal-overlay">
+              <div class="modal-box modal-lg">
+                <div class="modal-header">
+                  Edit Open Trip
+                </div>
+
+                <form method="POST" action="<?= BASE_URL ?>admin/edittrip" enctype="multipart/form-data">
+                  <input type="hidden" name="id" value="<?= $trip['id'] ?>">
+
+                  <div class="form-row">
+                    <div class="form-col">
+                      <div class="form-group">
+                        <label>Nama Trip</label>
+                        <input type="text" name="nama" class="form-input" value="<?= htmlspecialchars($trip['nama']) ?>" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Destinasi Utama</label>
+                        <select name="destinasi_id" class="form-input" required>
+                          <?php foreach ($destinasi as $d): ?>
+                            <option value="<?= $d['id'] ?>"
+                              <?= $trip['destinasi_id'] == $d['id'] ? 'selected' : '' ?>>
+                              <?= htmlspecialchars($d['nama']) ?>
+                            </option>
+                          <?php endforeach; ?>
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Tanggal Keberangkatan</label>
+                        <input type="date" name="tanggal" class="form-input"value="<?= $trip['tanggal'] ?>" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Kuota Peserta</label>
+                        <input type="number" name="kuota" class="form-input" value="<?= $trip['kuota'] ?>"required>
+                      </div>
+                    </div>
+
+                    <div class="form-col">
+                      <div class="form-group">
+                        <label>Harga</label>
+                        <input type="number" name="harga" class="form-input" value="<?= $trip['harga'] ?>" required>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Durasi</label>
+                        <input type="text" name="durasi" class="form-input" value="<?= htmlspecialchars($trip['durasi']) ?>">
+                      </div>
+
+                      <div class="form-group">
+                        <label>Foto Baru</label>
+                        <div class="file-upload-box">
+                          <input type="file" name="foto" accept="image/*" style="display:none;" id="fotoEdit<?= $trip['id'] ?>" onchange="document.getElementById('fotoEditLabel<?= $trip['id'] ?>').textContent=this.files[0].name">
+                          <button type="button" onclick="document.getElementById('fotoEdit<?= $trip['id'] ?>').click()"> Pilih File </button>
+                          <span id="fotoEditLabel<?= $trip['id'] ?>"> <?= htmlspecialchars($trip['foto']) ?></span>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Deskripsi</label>
+                        <textarea name="deskripsi" class="form-input" rows="4"><?= htmlspecialchars($trip['deskripsi']) ?></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal-footer">
+                    <a href="#" class="btn-cancel"> Batal </a>
+                    <button type="submit" class="btn-primary"> Update Trip </button>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+
             <?php endforeach; ?>
           <?php else: ?>
             <p style="text-align:center;color:#888;padding:40px 0;width:100%;">Belum ada open trip.</p>
@@ -80,6 +157,8 @@
       </div>
     </main>
   </div>
+
+
 
   <div id="modal-tambah-trip" class="modal-overlay">
     <div class="modal-box modal-lg">

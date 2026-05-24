@@ -154,6 +154,96 @@ class TripModel
         return $ok;
     }
 
+    public static function getByIdOpenTrip(mysqli $conn, int $id): ?array
+    {
+        $stmt = $conn->prepare("
+            SELECT *
+            FROM open_trip
+            WHERE id = ?
+            LIMIT 1
+        ");
+
+        $stmt->bind_param('i', $id);
+
+        $stmt->execute();
+
+        $data = $stmt->get_result()->fetch_assoc();
+
+        $stmt->close();
+
+        return $data ?: null;
+    }
+
+    public static function update(mysqli $conn, int $id, array $data, ?string $foto = null): bool
+    {
+        if ($foto) {
+
+            $stmt = $conn->prepare("
+                UPDATE open_trip
+                SET
+                    nama = ?,
+                    destinasi_id = ?,
+                    tanggal = ?,
+                    durasi = ?,
+                    harga = ?,
+                    kuota = ?,
+                    foto = ?,
+                    deskripsi = ?,
+                    fasilitas = ?
+                WHERE id = ?
+            ");
+
+            $stmt->bind_param(
+                'sissdisssi',
+                $data['nama'],
+                $data['destinasi_id'],
+                $data['tanggal'],
+                $data['durasi'],
+                $data['harga'],
+                $data['kuota'],
+                $foto,
+                $data['deskripsi'],
+                $data['fasilitas'],
+                $id
+            );
+
+        } else {
+
+            $stmt = $conn->prepare("
+                UPDATE open_trip
+                SET
+                    nama = ?,
+                    destinasi_id = ?,
+                    tanggal = ?,
+                    durasi = ?,
+                    harga = ?,
+                    kuota = ?,
+                    deskripsi = ?,
+                    fasilitas = ?
+                WHERE id = ?
+            ");
+
+            $stmt->bind_param(
+                'sissdissi',
+                $data['nama'],
+                $data['destinasi_id'],
+                $data['tanggal'],
+                $data['durasi'],
+                $data['harga'],
+                $data['kuota'],
+                $data['deskripsi'],
+                $data['fasilitas'],
+                $id
+            );
+        }
+
+        $ok = $stmt->execute();
+
+        $stmt->close();
+
+        return $ok;
+    }
+
     public static function delete(mysqli $conn, int $id): bool
     {
         $stmt = $conn->prepare("
