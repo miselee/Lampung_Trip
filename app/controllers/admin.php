@@ -79,6 +79,39 @@ function tambahdestinasi()
     exit;
 }
 
+function editdestinasi()
+{
+    global $conn;
+
+    $id = (int) $_POST['id'];
+
+    $data = [
+        'nama'       => $_POST['nama'],
+        'lokasi'     => $_POST['lokasi'],
+        'kategori'   => $_POST['kategori'],
+        'deskripsi'  => $_POST['deskripsi']
+    ];
+
+    $foto = null;
+
+    if (!empty($_FILES['foto']['name'])) {
+
+        $foto = time() . '_' . $_FILES['foto']['name'];
+
+        move_uploaded_file(
+            $_FILES['foto']['tmp_name'],
+            'assets/img/' . $foto
+        );
+    }
+
+    DestinasiModel::update($conn, $id, $data, $foto);
+
+    $_SESSION['success'] = 'Destinasi berhasil diupdate';
+
+    header('Location: ' . BASE_URL . 'admin/destinasi');
+    exit;
+}
+
 function hapusdestinasi()
 {
     global $conn;

@@ -100,6 +100,51 @@ class DestinasiModel
         return $ok;
     }
 
+    public static function update(mysqli $conn, int $id, array $data, ?string $foto = null): bool
+    {
+        if ($foto) {
+
+            $stmt = $conn->prepare("
+                UPDATE destinasi
+                SET nama = ?, lokasi = ?, kategori = ?, foto = ?, deskripsi = ?
+                WHERE id = ?
+            ");
+
+            $stmt->bind_param(
+                'sssssi',
+                $data['nama'],
+                $data['lokasi'],
+                $data['kategori'],
+                $foto,
+                $data['deskripsi'],
+                $id
+            );
+
+        } else {
+
+            $stmt = $conn->prepare("
+                UPDATE destinasi
+                SET nama = ?, lokasi = ?, kategori = ?, deskripsi = ?
+                WHERE id = ?
+            ");
+
+            $stmt->bind_param(
+                'ssssi',
+                $data['nama'],
+                $data['lokasi'],
+                $data['kategori'],
+                $data['deskripsi'],
+                $id
+            );
+        }
+
+        $ok = $stmt->execute();
+
+        $stmt->close();
+
+        return $ok;
+    }
+
     public static function delete(mysqli $conn, int $id): bool
     {
         $stmt = $conn->prepare("

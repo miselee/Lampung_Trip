@@ -65,6 +65,7 @@
                   <td><span class="badge badge-aktif"><?= htmlspecialchars($d['kategori'] ?? '-') ?></span></td>
                   <td>
                     <div class="action-btns">
+                      <a href="#modal-edit-<?= $d['id'] ?>" class="btn-edit"> Edit </a>
                       <form method="POST" action="<?= BASE_URL ?>admin/hapusdestinasi" onsubmit="return confirm('Hapus destinasi ini?')" style="display:inline;">
                         <input type="hidden" name="id" value="<?= $d['id'] ?>">
                         <button type="submit" class="btn-danger">Hapus</button>
@@ -72,6 +73,107 @@
                     </div>
                   </td>
                 </tr>
+
+                <div id="modal-edit-<?= $d['id'] ?>" class="modal-overlay">
+                  <div class="modal-box modal-md">
+                    <div class="modal-header">Edit Destinasi</div>
+
+                    <form method="POST" action="<?= BASE_URL ?>admin/editdestinasi"
+                          enctype="multipart/form-data">
+
+                      <input type="hidden" name="id" value="<?= $d['id'] ?>">
+
+                      <div class="form-group">
+                        <label>Foto Destinasi</label>
+
+                        <div class="file-upload-box">
+                          <input type="file"
+                                name="foto"
+                                accept="image/*"
+                                style="display:none;"
+                                id="editFoto<?= $d['id'] ?>"
+                                onchange="document.getElementById('label<?= $d['id'] ?>').textContent=this.files[0].name">
+
+                          <button type="button"
+                                  onclick="document.getElementById('editFoto<?= $d['id'] ?>').click()">
+                            Pilih File
+                          </button>
+
+                          <span id="label<?= $d['id'] ?>">
+                            <?= htmlspecialchars($d['foto']) ?>
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Nama Destinasi</label>
+                        <input type="text"
+                              name="nama"
+                              class="form-input"
+                              value="<?= htmlspecialchars($d['nama']) ?>"
+                              required>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Lokasi</label>
+                        <input type="text"
+                              name="lokasi"
+                              class="form-input"
+                              value="<?= htmlspecialchars($d['lokasi']) ?>"
+                              required>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Kategori</label>
+
+                        <select name="kategori" class="form-input">
+
+                          <option value="Pantai"
+                            <?= $d['kategori'] == 'Pantai' ? 'selected' : '' ?>>
+                            Pantai
+                          </option>
+
+                          <option value="Gunung"
+                            <?= $d['kategori'] == 'Gunung' ? 'selected' : '' ?>>
+                            Gunung
+                          </option>
+
+                          <option value="Taman Nasional"
+                            <?= $d['kategori'] == 'Taman Nasional' ? 'selected' : '' ?>>
+                            Taman Nasional
+                          </option>
+
+                          <option value="Pulau"
+                            <?= $d['kategori'] == 'Pulau' ? 'selected' : '' ?>>
+                            Pulau
+                          </option>
+
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Deskripsi</label>
+
+                        <textarea name="deskripsi"
+                                  class="form-input"
+                                  rows="3"><?= htmlspecialchars($d['deskripsi']) ?></textarea>
+                      </div>
+
+                      <div class="modal-footer">
+                        <a href="<?= BASE_URL ?>admin/destinasi"
+                          class="btn-cancel">
+                          Batal
+                        </a>
+
+                        <button type="submit" class="btn-primary">
+                          Simpan Perubahan
+                        </button>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+                
                 <?php endforeach; ?>
               <?php else: ?>
                 <tr>

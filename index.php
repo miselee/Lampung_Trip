@@ -116,6 +116,11 @@ switch ($route) {
         tambahdestinasi();
         break;
 
+    case 'admin/editdestinasi':
+        require_once 'app/controllers/admin.php';
+        editdestinasi();
+        break;
+
     case 'admin/hapusdestinasi':
         require_once 'app/controllers/admin.php';
         hapusdestinasi();
