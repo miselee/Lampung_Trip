@@ -166,5 +166,45 @@ class PendaftaranModel
 
         return (int)($data['total'] ?? 0);
     }
+
+    public static function getByUser(mysqli $conn, int $user_id): array
+    {
+    $query = "
+    SELECT 
+        p.*,
+        o.nama AS nama_trip,
+        py.status AS status_pembayaran
+    FROM pendaftaran p
+
+    JOIN open_trip o
+        ON p.open_trip_id = o.id
+
+    LEFT JOIN pembayaran py
+        ON py.pendaftaran_id = p.id
+
+    WHERE p.user_id = ?
+
+    ORDER BY p.id DESC
+    ";
+
+    $stmt = mysqli_prepare($conn, $query);
+
+    mysqli_stmt_bind_param(
+        $stmt,
+        "i",
+        $user_id
+    );
+
+    mysqli_stmt_execute($stmt);
+
+    $data = mysqli_fetch_all(
+        mysqli_stmt_get_result($stmt),
+        MYSQLI_ASSOC
+    );
+
+    mysqli_stmt_close($stmt);
+
+    return $data;
+    }
 }
 ?>

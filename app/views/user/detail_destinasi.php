@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= htmlspecialchars($destinasi['nama'] ?? '') ?> | Lampung Trip</title>
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/detail_destinasi.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
 </head>
 
-<body>
+<body class="detail-destinasi">
 
   <div class="navbar">
     <div class="logo">Lampung Trip</div>
@@ -16,6 +16,7 @@
       <a href="<?= BASE_URL ?>user/index">Beranda</a>
       <a href="<?= BASE_URL ?>user/destinasi" class="active">Destinasi</a>
       <a href="<?= BASE_URL ?>user/open_trip">Open Trip</a>
+      <a href="<?= BASE_URL ?>user/riwayat">Riwayat</a>
       <a href="<?= BASE_URL ?>auth/logout">Logout</a>
     </div>
   </div>

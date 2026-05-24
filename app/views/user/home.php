@@ -8,14 +8,10 @@
 
     <title>Home User</title>
 
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/global.css">
-
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/navbar.css">
-
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/user.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
 </head>
 
-<body>
+<body class="user">
 
     <div class="navbar">
 
@@ -23,21 +19,11 @@
 
         <div>
 
-            <a class="active" href="<?= BASE_URL ?>user/index">
-                Beranda
-            </a>
-
-            <a href="<?= BASE_URL ?>user/destinasi">
-                Destinasi
-            </a>
-
-            <a href="<?= BASE_URL ?>user/opentrip">
-                Open Trip
-            </a>
-
-            <a href="<?= BASE_URL ?>auth/logout">
-                Logout
-            </a>
+            <a class="active" href="<?= BASE_URL ?>user/index">Beranda</a>
+            <a href="<?= BASE_URL ?>user/destinasi">Destinasi</a>
+            <a href="<?= BASE_URL ?>user/opentrip">Open Trip</a>
+            <a href="<?= BASE_URL ?>user/riwayat">Riwayat</a>
+            <a href="<?= BASE_URL ?>auth/logout">Logout</a>
 
         </div>
 

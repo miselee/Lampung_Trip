@@ -6,15 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin — Pembayaran | Lampung Trip</title>
 
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/global.css">
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/admin.css">
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/admin-pendaftaran.css">
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/admin-pembayaran.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
 </head>
 
 <body>
 
-  <div class="admin-wrapper">
+<div class="admin-wrapper">
 
     <aside class="sidebar">
 
@@ -24,21 +21,10 @@
 
       <nav class="sidebar-menu">
 
-        <a href="<?= BASE_URL ?>index.php?url=admin/index" class="menu-item">
-          Overview
-        </a>
-
-        <a href="<?= BASE_URL ?>index.php?url=admin/destinasi" class="menu-item">
-          Destinasi
-        </a>
-
-        <a href="<?= BASE_URL ?>index.php?url=admin/opentrip" class="menu-item">
-          Open Trip
-        </a>
-
-        <a href="<?= BASE_URL ?>index.php?url=admin/pendaftaran" class="menu-item">
-          Pendaftaran
-        </a>
+        <a href="<?= BASE_URL ?>admin/index" class="menu-item">Overview</a>
+        <a href="<?= BASE_URL ?>admin/destinasi" class="menu-item">Destinasi</a>
+        <a href="<?= BASE_URL ?>admin/opentrip" class="menu-item">Open Trip</a>
+        <a href="<?= BASE_URL ?>admin/pendaftaran" class="menu-item">Pendaftaran</a>
 
         <a href="<?= BASE_URL ?>index.php?url=admin/pembayaran" class="menu-item active">
 

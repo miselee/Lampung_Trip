@@ -86,6 +86,20 @@ function detailtrip()
         die('<p style="text-align:center;margin-top:50px;">Open Trip tidak ditemukan.</p>');
     }
 
+    $show_payment = isset($_GET['show_payment']);
+
+    $pendaftaran = null;
+
+    if($show_payment && isset($_GET['pendaftaran_id']))
+    {
+        $pendaftaran=
+        PendaftaranModel::getByIdAndUser(
+            $conn,
+            $_GET['pendaftaran_id'],
+            $_SESSION['id']
+        );
+    }
+
     require 'app/views/user/detail_trip.php';
 }
 
@@ -233,6 +247,41 @@ function uploadbukti()
 
     $_SESSION['success'] = 'Bukti pembayaran berhasil dikirim! Menunggu konfirmasi admin.';
     header('Location: ' . BASE_URL . 'user/index');
+    exit;
+}
+
+function riwayat()
+{
+    global $conn;
+    requireUserLogin();
+
+    $riwayat = PendaftaranModel::getByUser(
+        $conn,
+        $_SESSION['id']
+    );
+
+    require 'app/views/user/riwayat.php';
+}
+
+function updatependaftaran()
+{
+    global $conn;
+
+    requireUserLogin();
+
+    PendaftaranModel::update(
+        $conn,
+        $_POST['id'],
+        $_POST['no_whatsapp'],
+        $_POST['catatan']
+    );
+
+    header(
+        'Location:' .
+        BASE_URL .
+        'user/riwayat'
+    );
+
     exit;
 }
 ?>

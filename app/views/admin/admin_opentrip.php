@@ -5,10 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin — Open Trip | Lampung Trip</title>
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/global.css">
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/admin.css">
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/admin-destinasi.css">
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/admin-opentrip.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
 </head>
 
 <body>

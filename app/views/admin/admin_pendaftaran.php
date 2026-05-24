@@ -5,9 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin — Pendaftaran | Lampung Trip</title>
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/global.css">
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/admin.css">
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/admin-pendaftaran.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
 </head>
 
 <body>
@@ -17,12 +15,12 @@
     <aside class="sidebar">
       <div class="sidebar-logo">Lampung Trip</div>
       <nav class="sidebar-menu">
-        <a href="<?= BASE_URL ?>index.php?url=admin/index" class="menu-item">Overview</a>
-        <a href="<?= BASE_URL ?>index.php?url=admin/destinasi" class="menu-item">Destinasi</a>
-        <a href="<?= BASE_URL ?>index.php?url=admin/opentrip" class="menu-item">Open Trip</a>
-        <a href="<?= BASE_URL ?>index.php?url=admin/pendaftaran" class="menu-item active">Pendaftaran <span
+        <a href="<?= BASE_URL ?>admin/index" class="menu-item">Overview</a>
+        <a href="<?= BASE_URL ?>admin/destinasi" class="menu-item">Destinasi</a>
+        <a href="<?= BASE_URL ?>admin/opentrip" class="menu-item">Open Trip</a>
+        <a href="<?= BASE_URL ?>admin/pendaftaran" class="menu-item active">Pendaftaran <span
             class="menu-badge"><?= $count_menunggu ?></span></a>
-        <a href="<?= BASE_URL ?>index.php?url=admin/pembayaran" class="menu-item">Pembayaran <span
+        <a href="<?= BASE_URL ?>admin/pembayaran" class="menu-item">Pembayaran <span
             class="menu-badge">0</span></a>
       </nav>
       <a href="<?= BASE_URL ?>auth/logout" class="sidebar-logout">Logout</a>

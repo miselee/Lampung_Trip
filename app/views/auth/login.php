@@ -7,12 +7,10 @@
 
     <title>Login</title>
 
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/global.css">
-
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/login.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
 </head>
 
-<body>
+<body class="login">
 
     <div class="container">
 

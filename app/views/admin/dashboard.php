@@ -5,9 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin — Overview | Lampung Trip</title>
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/global.css">
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/admin.css">
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/admin-overview.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
 </head>
 
 <body>

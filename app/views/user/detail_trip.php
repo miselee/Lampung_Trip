@@ -4,20 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title><?= htmlspecialchars($trip['nama'] ?? '') ?> | Detail Open Trip</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/navbar.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/detail_trip.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/popup.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
 </head>
 
-<body>
+<body class="detail-trip">
 
     <div class="navbar">
         <h2>Lampung Trip</h2>
         <div>
-            <a href="<?= BASE_URL ?>index.php?url=user/index">Beranda</a>
-            <a href="<?= BASE_URL ?>index.php?url=user/destinasi">Destinasi</a>
-            <a class="active" href="<?= BASE_URL ?>index.php?url=user/opentrip">Open Trip</a>
-            <a href="<?= BASE_URL ?>index.php?url=auth/logout">Logout</a>
+            <a href="<?= BASE_URL ?>user/index">Beranda</a>
+            <a href="<?= BASE_URL ?>user/destinasi">Destinasi</a>
+            <a class="active" href="<?= BASE_URL ?>user/opentrip">Open Trip</a>
+            <a href="<?= BASE_URL ?>user/riwayat">Riwayat</a>
+            <a href="<?= BASE_URL ?>auth/logout">Logout</a>
         </div>
     </div>
 
@@ -145,15 +144,42 @@
                 <button class="m-close" type="button" id="btnTutupOverlay">&#10005;</button>
             </div>
 
-            <form method="POST" action="<?= BASE_URL ?>index.php?url=user/daftartrip" enctype="multipart/form-data">
-                <input type="hidden" name="open_trip_id" value="<?= (int) ($trip['id'] ?? 0) ?>">
-                <input type="hidden" name="harga_satuan" value="<?= (int) ($trip['harga'] ?? 0) ?>">
+            <form method="POST"
+            action="<?=
+            (isset($show_payment) && $show_payment)
+            ? BASE_URL.'index.php?url=user/uploadbukti'
+            : BASE_URL.'index.php?url=user/daftartrip'
+            ?>"
+
+            enctype="multipart/form-data">
+
+            <?php if(isset($show_payment) && $show_payment): ?>
+
+            <input
+            type="hidden"
+            name="pendaftaran_id"
+            value="<?= $pendaftaran['id'] ?>">
+
+            <?php else: ?>
+
+            <input
+            type="hidden"
+            name="open_trip_id"
+            value="<?= (int)$trip['id'] ?>">
+
+            <input
+            type="hidden"
+            name="harga_satuan"
+            value="<?= (int)$trip['harga'] ?>">
+
+            <?php endif; ?>
 
                 <div class="m-body">
 
                     <div class="m-left">
                         <p class="sec-title">Data Pendaftaran</p>
 
+                        <?php if(!isset($show_payment) || !$show_payment): ?>
                         <div class="fg">
                             <label>Nama Lengkap</label>
                             <input type="text" name="nama_lengkap" required placeholder="Masukkan nama lengkap">
@@ -187,6 +213,33 @@
                             </div>
                         </div>
                     </div>
+                    <?php endif; ?>
+
+                    <?php if(isset($show_payment) && $show_payment): ?>
+
+                    <div class="payment-box">
+
+                    <p><b>Nama:</b>
+                    <?= htmlspecialchars($pendaftaran['nama_lengkap']) ?>
+                    </p>
+
+                    <p><b>No WA:</b>
+                    <?= htmlspecialchars($pendaftaran['no_whatsapp']) ?>
+                    </p>
+
+                    <p><b>Jumlah Orang:</b>
+                    <?= $pendaftaran['jumlah_orang'] ?>
+                    </p>
+
+                    </div>
+
+                    <input
+                    type="hidden"
+                    name="pendaftaran_id"
+                    value="<?= $pendaftaran['id'] ?>">
+
+                    <?php endif; ?>
+
                     <div class="m-right">
                         <p class="sec-title">Transfer ke Rekening</p>
 
@@ -215,7 +268,12 @@
                         </div>
 
                         <button type="submit" class="btn-pay">
-                            &#10003; Daftar &amp; Kirim Pembayaran
+
+                        <?= (isset($show_payment) && $show_payment)
+                        ? '✔ Upload Bukti'
+                        : '✔ Daftar & Kirim Pembayaran'
+                        ?>
+
                         </button>
                     </div>
 
@@ -224,6 +282,30 @@
 
         </div>
     </div>
+
+    <?php if(isset($show_payment) && $show_payment): ?>
+
+    <script>
+    document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+    document
+    .getElementById(
+    'daftar-overlay'
+    )
+    .classList.add(
+    "show"
+    );
+
+    document.body.style.overflow=
+    "hidden";
+
+    }
+    );
+    </script>
+
+    <?php endif; ?>
 
     <script>var TRIP_HARGA = <?= (int) ($trip['harga'] ?? 0) ?>;</script>
     <script src="<?= BASE_URL ?>assets/js/user.js"></script>

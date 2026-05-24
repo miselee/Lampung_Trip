@@ -59,7 +59,7 @@ class PembayaranModel
         $stmt = $conn->prepare("
             INSERT INTO pembayaran
             (pendaftaran_id, user_id, open_trip_id, jumlah, bukti_transfer, status)
-            VALUES (?, ?, ?, ?, ?, 'menunggu')
+            VALUES (?, ?, ?, ?, ?, 'belum_upload')
         ");
 
         $stmt->bind_param(
@@ -80,36 +80,45 @@ class PembayaranModel
 
     public static function updateBukti(mysqli $conn, int $pendaftaran_id, string $bukti): bool
     {
-        $stmt = $conn->prepare("
-            UPDATE pembayaran
-            SET bukti_transfer = ?, status = 'menunggu'
-            WHERE pendaftaran_id = ?
-        ");
+    $stmt = $conn->prepare("
+        UPDATE pembayaran
+        SET bukti_transfer=?,
+            status='menunggu'
+        WHERE pendaftaran_id=?
+    ");
 
-        $stmt->bind_param('si', $bukti, $pendaftaran_id);
+    $stmt->bind_param(
+        "si",
+        $bukti,
+        $pendaftaran_id
+    );
 
-        $ok = $stmt->execute();
+    $ok = $stmt->execute();
 
-        $stmt->close();
+    $stmt->close();
 
-        return $ok;
+    return $ok;
     }
 
-    public static function updateStatus(mysqli $conn, int $id, string $status): bool
+    public static function updateStatus(mysqli $conn, int $pendaftaran_id, string $status): bool
     {
-        $stmt = $conn->prepare("
-            UPDATE pembayaran
-            SET status = ?
-            WHERE id = ?
-        ");
+    $stmt = $conn->prepare("
+        UPDATE pembayaran
+        SET status=?
+        WHERE pendaftaran_id=?
+    ");
 
-        $stmt->bind_param('si', $status, $id);
+    $stmt->bind_param(
+        "si",
+        $status,
+        $pendaftaran_id
+    );
 
-        $ok = $stmt->execute();
+    $ok = $stmt->execute();
 
-        $stmt->close();
+    $stmt->close();
 
-        return $ok;
+    return $ok;
     }
 
     public static function countMenunggu(mysqli $conn): int

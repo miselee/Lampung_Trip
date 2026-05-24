@@ -5,20 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destinasi | Lampung Trip</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/global.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/navbar.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/destinasi.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
 </head>
 
-<body>
+<body class="destinasi">
 
     <div class="navbar">
         <h2>Lampung Trip</h2>
         <div>
-            <a href="<?= BASE_URL ?>index.php?url=user/index">Beranda</a>
-            <a class="active" href="<?= BASE_URL ?>index.php?url=user/destinasi">Destinasi</a>
-            <a href="<?= BASE_URL ?>index.php?url=user/opentrip">Open Trip</a>
-            <a href="<?= BASE_URL ?>index.php?url=auth/logout">Logout</a>
+            <a href="<?= BASE_URL ?>user/index">Beranda</a>
+            <a class="active" href="<?= BASE_URL ?>user/destinasi">Destinasi</a>
+            <a href="<?= BASE_URL ?>user/opentrip">Open Trip</a>
+            <a href="<?= BASE_URL ?>user/riwayat">Riwayat</a>
+            <a href="<?= BASE_URL ?>auth/logout">Logout</a>
         </div>
     </div>
 

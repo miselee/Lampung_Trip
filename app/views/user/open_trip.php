@@ -7,12 +7,10 @@
 
     <title>Open Trip | Lampung Trip</title>
 
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/global.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/navbar.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/open_trip.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
 </head>
 
-<body>
+<body class="open-trip">
 
     <div class="navbar">
 
@@ -20,21 +18,11 @@
 
         <div>
 
-            <a href="<?= BASE_URL ?>user/index">
-                Beranda
-            </a>
-
-            <a href="<?= BASE_URL ?>user/destinasi">
-                Destinasi
-            </a>
-
-            <a class="active" href="<?= BASE_URL ?>user/opentrip">
-                Open Trip
-            </a>
-
-            <a href="<?= BASE_URL ?>auth/logout">
-                Logout
-            </a>
+            <a href="<?= BASE_URL ?>user/index">Beranda</a>
+            <a href="<?= BASE_URL ?>user/destinasi">Destinasi</a>
+            <a class="active" href="<?= BASE_URL ?>user/opentrip">Open Trip</a>
+            <a href="<?= BASE_URL ?>user/riwayat">Riwayat</a>
+            <a href="<?= BASE_URL ?>auth/logout">Logout</a>
 
         </div>
 

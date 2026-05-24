@@ -1,5 +1,4 @@
 <?php
-// index.php - Router sederhana pakai switch case
 
 require_once 'app/config/config.php';
 
@@ -7,13 +6,14 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Ambil route dari URL
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+
 $route = $_GET['url'] ?? '';
 
-// Default route
 if ($route === '') {
 
-    // Kalau sudah login
     if (isset($_SESSION['id'])) {
 
         if ($_SESSION['role'] === 'admin') {
@@ -29,12 +29,7 @@ if ($route === '') {
     exit;
 }
 
-// Routing pakai switch case
 switch ($route) {
-
-    // =============================================
-    // AUTH
-    // =============================================
 
     case 'auth/login':
         require_once 'app/controllers/auth.php';
@@ -60,10 +55,6 @@ switch ($route) {
         require_once 'app/controllers/auth.php';
         logout();
         break;
-
-    // =============================================
-    // USER
-    // =============================================
 
     case 'user/index':
         require_once 'app/controllers/user.php';
@@ -105,10 +96,11 @@ switch ($route) {
         uploadbukti();
         break;
 
-    // =============================================
-    // ADMIN
-    // =============================================
-
+    case 'user/riwayat':
+        require_once 'app/controllers/user.php';
+        riwayat();
+        break;
+    
     case 'admin/index':
         require_once 'app/controllers/admin.php';
         index();
@@ -163,10 +155,6 @@ switch ($route) {
         require_once 'app/controllers/admin.php';
         aksipembayaran();
         break;
-
-    // =============================================
-    // 404
-    // =============================================
 
     default:
         http_response_code(404);
