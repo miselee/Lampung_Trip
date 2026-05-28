@@ -11,31 +11,72 @@ body {
     height: 100%;
 }
 
-/* navbar */
-body {
-    font-family: 'Segoe UI';
-    margin: 0;
-    background: #f5f5f5;
+/*navbar*/
+
+body{
+    font-family:'Segoe UI';
+    margin:0;
+    background:#f5f5f5;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: white;
-    border-bottom: 1px solid #ddd;
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    background:white;
+    border-bottom:1px solid #ddd;
+    flex-wrap:wrap;
 }
 
-.navbar a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: black;
+.navbar h2{
+    margin:0;
 }
 
-.navbar a.active {
-    color: #2d9cdb;
-    font-weight: bold;
+.navbar div{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.navbar a{
+    text-decoration:none;
+    color:black;
+    font-size:16px;
+}
+
+.navbar a.active{
+    color:#2d9cdb;
+    font-weight:bold;
+}
+
+/*navbar responsive mobile*/
+
+@media (max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px;
+    }
+
+    .navbar h2{
+        margin-bottom:15px;
+        font-size:32px;
+    }
+
+    .navbar div{
+        width:100%;
+        flex-direction:column;
+        gap:12px;
+        align-items:flex-start;
+    }
+
+    .navbar a{
+        font-size:16px;
+        margin:0;
+    }
+
 }
 
 /* popup */
@@ -335,6 +376,122 @@ body {
     }
 }
 
+/* overlay tablet */
+
+@media (max-width: 992px){
+
+    #daftar-overlay .modal-wide{
+        max-width:95%;
+    }
+
+}
+
+/* overlay mobile */
+
+@media (max-width: 768px){
+
+    #daftar-overlay{
+        padding:20px 10px;
+        align-items:flex-start;
+    }
+
+    #daftar-overlay .modal-wide{
+        border-radius:16px;
+    }
+
+    #daftar-overlay .m-body{
+        grid-template-columns:1fr;
+    }
+
+    #daftar-overlay .m-left{
+        border-right:none;
+        border-bottom:1px solid #f0f4f8;
+    }
+
+    #daftar-overlay .m-left,
+    #daftar-overlay .m-right{
+        padding:22px 20px;
+    }
+
+    #daftar-overlay .m-header{
+        padding:20px;
+    }
+
+    #daftar-overlay .m-header h2{
+        font-size:20px;
+    }
+
+    #daftar-overlay .m-header p{
+        font-size:13px;
+    }
+
+    #daftar-overlay .rek-card{
+        gap:12px;
+        padding:14px;
+    }
+
+    #daftar-overlay .rek-nomor{
+        font-size:15px;
+        letter-spacing:1px;
+    }
+
+    #daftar-overlay .btn-pay{
+        padding:14px;
+    }
+
+}
+
+/* overlay mobile kecil */
+
+@media (max-width: 480px){
+
+    #daftar-overlay{
+        padding:10px;
+    }
+
+    #daftar-overlay .modal-wide{
+        border-radius:14px;
+    }
+
+    #daftar-overlay .m-header{
+        padding:18px 16px;
+    }
+
+    #daftar-overlay .m-header h2{
+        font-size:18px;
+    }
+
+    #daftar-overlay .m-left,
+    #daftar-overlay .m-right{
+        padding:18px 16px;
+    }
+
+    #daftar-overlay .sec-title{
+        font-size:10px;
+    }
+
+    #daftar-overlay .fg input,
+    #daftar-overlay .fg textarea{
+        font-size:13px;
+        padding:10px;
+    }
+
+    #daftar-overlay .rek-card{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    #daftar-overlay .upload-area{
+        padding:12px;
+        font-size:12px;
+    }
+
+    #daftar-overlay .btn-pay{
+        font-size:14px;
+    }
+
+}
+
 /* login&register */
 .login {
     height: 100vh;
@@ -468,6 +625,97 @@ body {
 .login .error {
     color: red;
     margin-bottom: 10px;
+}
+
+/*login&logout tablet*/
+
+@media (max-width: 992px){
+
+    .login .container{
+        padding:40px 60px;
+        gap:40px;
+    }
+
+    .login .left-side h1{
+        font-size:40px;
+    }
+
+    .login .left-side h3{
+        font-size:24px;
+    }
+
+}
+
+/*login%logput mobile*/
+
+@media (max-width: 768px){
+
+    .login{
+        height:auto;
+        min-height:100vh;
+        padding:40px 0;
+    }
+
+    .login .container{
+        flex-direction:column;
+        justify-content:center;
+        padding:30px 20px;
+        gap:30px;
+        text-align:center;
+    }
+
+    .login .left-side{
+        width:100%;
+    }
+
+    .login .left-side h1{
+        font-size:36px;
+    }
+
+    .login .left-side h3{
+        font-size:22px;
+    }
+
+    .login .left-side p{
+        max-width:100%;
+        font-size:16px;
+        margin:auto;
+        margin-top:15px;
+    }
+
+    .login .login-box{
+        width:100%;
+        max-width:400px;
+        padding:25px;
+    }
+
+}
+
+/*login&logout mobile kecil*/
+
+@media (max-width: 480px){
+
+    .login .left-side h1{
+        font-size:30px;
+    }
+
+    .login .left-side h3{
+        font-size:18px;
+    }
+
+    .login .left-side p{
+        font-size:14px;
+    }
+
+    .login .login-box{
+        padding:20px;
+        border-radius:15px;
+    }
+
+    .login .login-box button{
+        padding:12px;
+    }
+
 }
 
 /* home user */
@@ -650,6 +898,110 @@ body {
     text-decoration: none;
 }
 
+
+
+/*home user responsive tablet*/
+
+@media (max-width: 992px){
+
+    .user .rekomendasi,
+    .user .berita{
+        padding: 40px 40px;
+    }
+
+    .destinasi .container{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+}
+
+/*home user responsive mobile*/
+
+@media (max-width: 768px){
+
+    .user .hero{
+        height: auto;
+        padding: 80px 20px;
+        text-align: center;
+    }
+
+    .user .hero-content{
+        padding: 0;
+    }
+
+    .user .hero-text{
+        max-width: 100%;
+    }
+
+    .user .hero h1{
+        font-size: 32px;
+    }
+
+    .user .hero p{
+        font-size: 14px;
+    }
+
+    .user .search-box input{
+        width: 100%;
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    .user .rekomendasi,
+    .user .berita{
+        padding: 30px 20px;
+    }
+
+    .user .card{
+        min-width: 220px;
+        max-width: 220px;
+    }
+
+    .user .prev,
+    .user .next{
+        display: none;
+    }
+
+    .user .berita-container{
+        grid-template-columns: 1fr;
+    }
+
+    .destinasi .search{
+        width: 90%;
+    }
+
+    .destinasi .container{
+        width: 90%;
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/*responsive home user mobile kecil*/
+
+@media (max-width: 480px){
+
+    .user .hero h1{
+        font-size: 26px;
+    }
+
+    .user .hero p{
+        font-size: 13px;
+    }
+
+    .user .card{
+        min-width: 200px;
+        max-width: 200px;
+    }
+
+    .destinasi .card img{
+        height: 200px;
+    }
+
+}
+
+
+
 /* detail destinasi */
 .detail-destinasi .body {
     font-family: Arial, Helvetica, sans-serif;
@@ -762,9 +1114,9 @@ body {
 }
 
 .detail-destinasi .btn {
-    width: 300px;
-    padding: 12px;
-    margin: 30px auto 0;
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 30px;
     background: #27ae60;
     color: #fff;
     text-align: center;
@@ -772,6 +1124,122 @@ body {
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
+}
+
+/* detail destinasi tablet */
+
+@media (max-width: 992px){
+
+    .detail-destinasi .content{
+        gap:25px;
+    }
+
+    .detail-destinasi .thumbs img{
+        width:140px;
+        height:80px;
+    }
+
+}
+
+/* detail destinasi mobile */
+
+@media (max-width: 768px){
+
+    .detail-destinasi .hero{
+        height:220px;
+        border-radius:0;
+        margin-top:0;
+    }
+
+    .detail-destinasi .thumbs{
+        justify-content:flex-start;
+        overflow-x:auto;
+        padding-bottom:10px;
+        margin-top:-20px;
+    }
+
+    .detail-destinasi .thumbs::-webkit-scrollbar{
+        display:none;
+    }
+
+    .detail-destinasi .thumbs img{
+        min-width:120px;
+        width:120px;
+        height:75px;
+        flex-shrink:0;
+    }
+
+    .detail-destinasi .container{
+        width:95%;
+    }
+
+    .detail-destinasi .title{
+        font-size:24px;
+    }
+
+    .detail-destinasi .subtitle{
+        font-size:14px;
+    }
+
+    .detail-destinasi .rating{
+        float:none;
+        display:block;
+        margin-top:10px;
+    }
+
+    .detail-destinasi .content{
+        flex-direction:column;
+        gap:30px;
+    }
+
+    .detail-destinasi .left,
+    .detail-destinasi .right{
+        width:100%;
+    }
+
+    .detail-destinasi .map{
+        height:250px;
+    }
+
+    .detail-destinasi .btn{
+        display:block;
+        width:100%;
+        box-sizing:border-box;
+    }
+
+}
+
+/* detail destinasi mobile kecil */
+
+@media (max-width: 480px){
+
+    .detail-destinasi .hero{
+        height:180px;
+    }
+
+    .detail-destinasi .title{
+        font-size:20px;
+    }
+
+    .detail-destinasi .section-title{
+        font-size:16px;
+    }
+
+    .detail-destinasi .text{
+        font-size:13px;
+        line-height:1.7;
+    }
+
+    .detail-destinasi .map{
+        height:220px;
+    }
+
+    .detail-destinasi .thumbs img{
+        min-width:100px;
+        width:100px;
+        height:65px;
+    }
+
 }
 
 /* detail trip */
@@ -1340,6 +1808,104 @@ button:disabled {
     filter: brightness(0.97);
 }
 
+/*detail trip responsive*/
+
+@media (max-width: 992px){
+
+    .detail-trip .container{
+        flex-direction: column;
+    }
+
+    .detail-trip .right{
+        width:100%;
+        position: static;
+    }
+
+}
+
+/*detail trip mobile*/
+
+@media (max-width: 768px){
+
+    .detail-trip .container{
+        width:95%;
+        gap:20px;
+    }
+
+    .detail-trip .left-top{
+        flex-direction: column;
+    }
+
+    .detail-trip .left-bottom{
+        flex-direction: column;
+    }
+
+    .detail-trip .left-info,
+    .detail-trip .itinerary-box,
+    .detail-trip .left,
+    .detail-trip .middle{
+        width:100%;
+        max-width:100%;
+    }
+
+    .detail-trip .middle h2{
+        font-size:32px;
+    }
+
+    .detail-trip .sub{
+        font-size:22px;
+    }
+
+    .detail-trip .main-img{
+        height:260px;
+    }
+
+    .detail-trip .thumbs img{
+        height:60px;
+    }
+
+    .detail-trip .fasilitas-box{
+        max-width:100%;
+    }
+
+    .detail-trip .card h3{
+        font-size:28px;
+    }
+
+}
+
+/*detail trip mobile kecil*/
+
+@media (max-width: 480px){
+
+    .detail-trip .main-img{
+        height:220px;
+    }
+
+    .detail-trip .middle h2{
+        font-size:26px;
+    }
+
+    .detail-trip .sub{
+        font-size:18px;
+    }
+
+    .detail-trip .desc-box,
+    .detail-trip .highlight-box,
+    .detail-trip .itinerary-box,
+    .detail-trip .card{
+        padding:18px;
+    }
+
+    .detail-trip .desc-box h3,
+    .detail-trip .highlight-box h3,
+    .detail-trip .itinerary-box h3{
+        font-size:22px;
+    }
+
+}
+
+
 /* open trip */
 .open-trip .container {
     width: 80%;
@@ -1383,6 +1949,56 @@ button:disabled {
     border-radius: 8px;
     margin-top: 10px;
     text-decoration: none;
+}
+
+/*open trip responsive*/
+
+@media (max-width: 992px){
+
+    .open-trip .container{
+        width:90%;
+        grid-template-columns: repeat(2,1fr);
+    }
+
+}
+
+/* open trip mobile*/
+
+@media (max-width: 768px){
+
+    .open-trip .container{
+        width:90%;
+        grid-template-columns: 1fr;
+        gap:20px;
+    }
+
+    .open-trip .card img{
+        height:220px;
+    }
+
+}
+
+/* open trip mobile kecil */
+
+@media (max-width: 480px){
+
+    .open-trip .container{
+        width:95%;
+    }
+
+    .open-trip .card img{
+        height:200px;
+    }
+
+    .open-trip .card-body{
+        padding:12px;
+    }
+
+    .open-trip .btn{
+        padding:12px;
+        font-size:14px;
+    }
+
 }
 
 /* riwayat */
@@ -1522,6 +2138,91 @@ button:disabled {
 
 .btn-upload:hover{
     opacity:.9;
+}
+
+/* riwayat tablet */
+
+@media (max-width: 992px){
+
+    .riwayat-container{
+        width:90%;
+    }
+
+}
+
+/* riwayat mobile */
+
+@media (max-width: 768px){
+
+    .riwayat-container{
+        width:95%;
+        margin:25px auto;
+    }
+
+    .riwayat-title{
+        font-size:30px;
+        margin-bottom:20px;
+    }
+
+    .riwayat-card{
+        padding:20px;
+        border-radius:16px;
+    }
+
+    .riwayat-top{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .riwayat-info{
+        flex-direction:column;
+    }
+
+    .status-wrapper{
+        flex-direction:column;
+    }
+
+    .info-box,
+    .status-item{
+        width:100%;
+        box-sizing:border-box;
+    }
+
+    .btn-upload{
+        width:100%;
+        max-width:100%;
+        padding:14px;
+        font-size:15px;
+    }
+
+}
+
+/*riwayat mobile kecil*/
+
+@media (max-width: 480px){
+
+    .riwayat-title{
+        font-size:26px;
+    }
+
+    .riwayat-top h2{
+        font-size:22px;
+    }
+
+    .riwayat-card{
+        padding:16px;
+    }
+
+    .info-box strong{
+        font-size:15px;
+    }
+
+    .badge{
+        font-size:12px;
+        padding:6px 12px;
+    }
+
 }
 
 /* admin */
@@ -1895,7 +2596,17 @@ button:disabled {
 }
 
 .trip-card {
+    background: #fff;
+    border-radius: 16px;
     overflow: hidden;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: 0.2s ease;
+}
+
+.trip-card:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.10);
 }
 
 .trip-card-img {
