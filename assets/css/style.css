@@ -493,17 +493,26 @@ body{
 }
 
 /* login&register */
+body.login{
+    background: url('../img/background.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .login {
     height: 100vh;
-    background: url('../img/background.png') no-repeat center;
-    background-size: cover;
 }
 
 .login .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     height: 100%;
+
+    max-width: 1400px;
+    margin: 0 auto;
+
     padding: 60px 120px;
 }
 
@@ -648,20 +657,26 @@ body{
 
 /*login%logput mobile*/
 
-@media (max-width: 768px){
+@media (max-width:768px){
 
     .login{
-        height:auto;
+        height: auto;
         min-height:100vh;
-        padding:40px 0;
+        display:flex;
+        align-items:center;
+    }
+
+    .login .left-side p{
+        display:none;
     }
 
     .login .container{
         flex-direction:column;
         justify-content:center;
-        padding:30px 20px;
-        gap:30px;
-        text-align:center;
+        align-items:center;
+        height:auto;
+        padding:20px;
+        gap:20px;
     }
 
     .login .left-side{
@@ -670,17 +685,12 @@ body{
 
     .login .left-side h1{
         font-size:36px;
+        text-align: center;
     }
 
     .login .left-side h3{
         font-size:22px;
-    }
-
-    .login .left-side p{
-        max-width:100%;
-        font-size:16px;
-        margin:auto;
-        margin-top:15px;
+        text-align: center;
     }
 
     .login .login-box{
