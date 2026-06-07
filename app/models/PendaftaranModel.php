@@ -171,19 +171,16 @@ class PendaftaranModel
     {
     $query = "
     SELECT 
-        p.*,
-        o.nama AS nama_trip,
-        py.status AS status_pembayaran
+    p.*,
+    o.nama AS nama_trip,
+    py.status AS status_pembayaran,
+    py.bukti_transfer
     FROM pendaftaran p
-
     JOIN open_trip o
         ON p.open_trip_id = o.id
-
     LEFT JOIN pembayaran py
         ON py.pendaftaran_id = p.id
-
     WHERE p.user_id = ?
-
     ORDER BY p.id DESC
     ";
 

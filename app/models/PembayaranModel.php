@@ -56,19 +56,24 @@ class PembayaranModel
 
     public static function insert(mysqli $conn, array $data): bool
     {
+        $status = empty($data['bukti_transfer'])
+        ? 'belum_upload'
+        : 'menunggu';
+
         $stmt = $conn->prepare("
             INSERT INTO pembayaran
             (pendaftaran_id, user_id, open_trip_id, jumlah, bukti_transfer, status)
-            VALUES (?, ?, ?, ?, ?, 'belum_upload')
+            VALUES (?, ?, ?, ?, ?, ?)
         ");
 
         $stmt->bind_param(
-            'iiids',
+            'iiidss',
             $data['pendaftaran_id'],
             $data['user_id'],
             $data['open_trip_id'],
             $data['jumlah'],
-            $data['bukti_transfer']
+            $data['bukti_transfer'],
+            $status
         );
 
         $ok = $stmt->execute();

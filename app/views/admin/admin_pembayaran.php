@@ -40,15 +40,16 @@
             <a href="<?= BASE_URL ?>admin/pendaftaran" class="menu-item">
                 <i class="fa-solid fa-user-check"></i>
                 Pendaftaran
+                <span class="menu-badge"><?= $count_pendaftaran ?></span>
             </a>
 
             <a href="<?= BASE_URL ?>index.php?url=admin/pembayaran" class="menu-item active">
                 <i class="fa-solid fa-credit-card"></i>
                 Pembayaran
 
-                <?php if ($count_menunggu > 0): ?>
+                <?php if ($count_pembayaran > 0): ?>
                     <span class="menu-badge">
-                        <?= $count_menunggu ?>
+                        <?= $count_pembayaran ?>
                     </span>
                 <?php endif; ?>
 
@@ -174,7 +175,7 @@
                   <form method="POST" action="<?= BASE_URL ?>index.php?url=admin/aksipembayaran" style="display:inline;"
                     onsubmit="return confirm('Konfirmasi pembayaran ini lunas?')">
 
-                    <input type="hidden" name="id" value="<?= $py['id'] ?>">
+                    <input type="hidden" name="id" value="<?= $py['pendaftaran_id'] ?>">
 
                     <input type="hidden" name="aksi" value="lunas">
 
@@ -188,7 +189,7 @@
                   <form method="POST" action="<?= BASE_URL ?>index.php?url=admin/aksipembayaran" style="display:inline;"
                     onsubmit="return confirm('Tolak pembayaran ini?')">
 
-                    <input type="hidden" name="id" value="<?= $py['id'] ?>">
+                    <input type="hidden" name="id" value="<?= $py['pendaftaran_id'] ?>">
 
                     <input type="hidden" name="aksi" value="tolak">
 

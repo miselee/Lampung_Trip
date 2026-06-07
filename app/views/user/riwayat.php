@@ -171,29 +171,31 @@
 
                 <?php endif; ?>
 
-                <?php if($r['status_pembayaran']=="belum_upload"): ?>
+                <?php
+                $bolehUbah =
+                    $r['status'] != 'ditolak'
+                    && $r['status_pembayaran'] != 'lunas';
+                ?>
 
-                <a
-                class="btn-upload"
-                href="<?= BASE_URL ?>user/detailtrip?id=<?= $r['open_trip_id'] ?>&show_payment=1&pendaftaran_id=<?= $r['id'] ?>">
+                <?php if($bolehUbah): ?>
 
-                <i class="fa-solid fa-cloud-arrow-up"></i>
-                Upload Bukti
-                </a>
+                    <a
+                    class="btn-upload"
+                    href="<?= BASE_URL ?>user/detailtrip?id=<?= $r['open_trip_id'] ?>&show_payment=1&pendaftaran_id=<?= $r['id'] ?>">
 
-                <?php elseif(
-                    $r['status_pembayaran']=="menunggu"
-                    || $r['status_pembayaran']=="ditolak"
-                ): ?>
+                        <?php if($r['status_pembayaran']=="belum_upload"): ?>
 
-                <a
-                class="btn-upload"
-                href="<?= BASE_URL ?>user/detailtrip?id=<?= $r['open_trip_id'] ?>&show_payment=1&pendaftaran_id=<?= $r['id'] ?>">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            Upload Bukti
 
-                <i class="fa-solid fa-pen-to-square"></i>
-                Ubah Bukti
+                        <?php else: ?>
 
-                </a>
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            Ubah Bukti
+
+                        <?php endif; ?>
+
+                    </a>
 
                 <?php endif; ?>
             </div>

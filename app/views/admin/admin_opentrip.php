@@ -38,12 +38,13 @@
             <a href="<?= BASE_URL ?>admin/pendaftaran" class="menu-item">
                 <i class="fa-solid fa-user-check"></i>
                 Pendaftaran
-                <span class="menu-badge"><?= $stat_pending ?? 0 ?></span>
+                <span class="menu-badge"><?= $count_pendaftaran ?></span>
             </a>
 
             <a href="<?= BASE_URL ?>admin/pembayaran" class="menu-item">
                 <i class="fa-solid fa-credit-card"></i>
                 Pembayaran
+                <span class="menu-badge"><?= $count_pembayaran ?></span>
             </a>
 
         </nav>

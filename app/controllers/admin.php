@@ -33,6 +33,9 @@ function index()
     $pendaftaran_terbaru = PendaftaranModel::getTerbaru($conn, 5);
     $pembayaran_terbaru  = PembayaranModel::getMenunggu($conn, 4);
     $upcoming_trips      = TripModel::getAktifTerbaru($conn, 4);
+    
+    $count_pendaftaran = PendaftaranModel::countByStatus($conn, 'menunggu');
+    $count_pembayaran  = PembayaranModel::countMenunggu($conn);
 
     require 'app/views/admin/dashboard.php';
 }
@@ -43,6 +46,9 @@ function destinasi()
     requireAdmin();
 
     $destinasi = DestinasiModel::getAll($conn);
+
+    $count_pendaftaran = PendaftaranModel::countByStatus($conn, 'menunggu');
+    $count_pembayaran  = PembayaranModel::countMenunggu($conn);
 
     require 'app/views/admin/admin_destinasi.php';
 }
@@ -132,6 +138,9 @@ function opentrip()
 
     $open_trips = TripModel::getAllForAdmin($conn);
     $destinasi  = TripModel::getDestinasiList($conn);
+
+    $count_pendaftaran = PendaftaranModel::countByStatus($conn, 'menunggu');
+    $count_pembayaran  = PembayaranModel::countMenunggu($conn);
 
     require 'app/views/admin/admin_opentrip.php';
 }
@@ -247,9 +256,11 @@ function pendaftaran()
 
     $status_filter   = $_GET['status'] ?? 'semua';
     $pendaftaran     = PendaftaranModel::getAll($conn, $status_filter);
-    $count_menunggu  = PendaftaranModel::countByStatus($conn, 'menunggu');
     $count_disetujui = PendaftaranModel::countByStatus($conn, 'disetujui');
     $count_ditolak   = PendaftaranModel::countByStatus($conn, 'ditolak');
+
+    $count_pendaftaran = PendaftaranModel::countByStatus($conn, 'menunggu');
+    $count_pembayaran  = PembayaranModel::countMenunggu($conn);
 
     require 'app/views/admin/admin_pendaftaran.php';
 }
@@ -287,7 +298,9 @@ function pembayaran()
     requireAdmin();
 
     $pembayaran     = PembayaranModel::getAll($conn);
-    $count_menunggu = PembayaranModel::countMenunggu($conn);
+
+    $count_pendaftaran = PendaftaranModel::countByStatus($conn, 'menunggu');
+    $count_pembayaran  = PembayaranModel::countMenunggu($conn);
 
     require 'app/views/admin/admin_pembayaran.php';
 }
