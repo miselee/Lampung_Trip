@@ -7,6 +7,7 @@
   <title>Admin — Pembayaran | Lampung Trip</title>
 
   <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
@@ -15,34 +16,50 @@
 
     <aside class="sidebar">
 
-      <div class="sidebar-logo">
-        Lampung Trip
-      </div>
+        <div class="sidebar-logo">
+            Lampung Trip
+        </div>
 
-      <nav class="sidebar-menu">
+        <nav class="sidebar-menu">
 
-        <a href="<?= BASE_URL ?>admin/index" class="menu-item">Overview</a>
-        <a href="<?= BASE_URL ?>admin/destinasi" class="menu-item">Destinasi</a>
-        <a href="<?= BASE_URL ?>admin/opentrip" class="menu-item">Open Trip</a>
-        <a href="<?= BASE_URL ?>admin/pendaftaran" class="menu-item">Pendaftaran</a>
+            <a href="<?= BASE_URL ?>admin/index" class="menu-item">
+                <i class="fa-solid fa-chart-line"></i>
+                Overview
+            </a>
 
-        <a href="<?= BASE_URL ?>index.php?url=admin/pembayaran" class="menu-item active">
+            <a href="<?= BASE_URL ?>admin/destinasi" class="menu-item">
+                <i class="fa-solid fa-location-dot"></i>
+                Destinasi
+            </a>
 
-          Pembayaran
+            <a href="<?= BASE_URL ?>admin/opentrip" class="menu-item">
+                <i class="fa-solid fa-route"></i>
+                Open Trip
+            </a>
 
-          <?php if ($count_menunggu > 0): ?>
-            <span class="menu-badge">
-              <?= $count_menunggu ?>
-            </span>
-          <?php endif; ?>
+            <a href="<?= BASE_URL ?>admin/pendaftaran" class="menu-item">
+                <i class="fa-solid fa-user-check"></i>
+                Pendaftaran
+            </a>
 
+            <a href="<?= BASE_URL ?>index.php?url=admin/pembayaran" class="menu-item active">
+                <i class="fa-solid fa-credit-card"></i>
+                Pembayaran
+
+                <?php if ($count_menunggu > 0): ?>
+                    <span class="menu-badge">
+                        <?= $count_menunggu ?>
+                    </span>
+                <?php endif; ?>
+
+            </a>
+
+        </nav>
+
+        <a href="<?= BASE_URL ?>auth/logout" class="sidebar-logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
         </a>
-
-      </nav>
-
-      <a href="<?= BASE_URL ?>auth/logout" class="sidebar-logout">
-        Logout
-      </a>
 
     </aside>
 
@@ -138,12 +155,12 @@
 
                 <?php if (!empty($py['bukti_transfer'])): ?>
 
-                  <a href="<?= BASE_URL . htmlspecialchars($py['bukti_transfer']) ?>" target="_blank" class="btn-sm-bukti">
-
-                    &#128247; Lihat Bukti
-
-                  </a>
-
+                 <a href="<?= BASE_URL . htmlspecialchars($py['bukti_transfer']) ?>" 
+                  target="_blank" 
+                  class="btn-sm-bukti">
+                    <i class="fa-solid fa-receipt"></i>
+                    Lihat Bukti
+                </a>
                 <?php else: ?>
 
                   <span class="no-bukti">
@@ -162,9 +179,8 @@
                     <input type="hidden" name="aksi" value="lunas">
 
                     <button type="submit" class="btn-sm-approve">
-
-                      &#10003; Konfirmasi Lunas
-
+                        <i class="fa-solid fa-circle-check"></i>
+                        Konfirmasi Lunas
                     </button>
 
                   </form>
@@ -177,9 +193,8 @@
                     <input type="hidden" name="aksi" value="tolak">
 
                     <button type="submit" class="btn-sm-reject">
-
-                      &#10005; Tolak
-
+                        <i class="fa-solid fa-circle-xmark"></i>
+                        Tolak
                     </button>
 
                   </form>
@@ -237,18 +252,20 @@
 
                 <?php if (!empty($py['bukti_transfer'])): ?>
 
-                  <a href="<?= BASE_URL . htmlspecialchars($py['bukti_transfer']) ?>" target="_blank" class="btn-sm-bukti">
-
-                    &#128247; Lihat Bukti
-
+                  <a href="<?= BASE_URL . htmlspecialchars($py['bukti_transfer']) ?>" 
+                    target="_blank" 
+                    class="btn-sm-bukti">
+                      <i class="fa-solid fa-receipt"></i>
+                      Lihat Bukti
                   </a>
 
                 <?php endif; ?>
 
                 <div style="margin-top:10px;">
-                  <span class="badge badge-approved">
-                    &#10003; Sudah Lunas
-                  </span>
+                    <span class="badge badge-approved">
+                        <i class="fa-solid fa-wallet"></i>
+                        Sudah Lunas
+                    </span>
                 </div>
 
               </div>
@@ -302,10 +319,11 @@
 
                 <?php if (!empty($py['bukti_transfer'])): ?>
 
-                  <a href="<?= BASE_URL . htmlspecialchars($py['bukti_transfer']) ?>" target="_blank" class="btn-sm-bukti">
-
-                    &#128247; Lihat Bukti
-
+                  <a href="<?= BASE_URL . htmlspecialchars($py['bukti_transfer']) ?>" 
+                    target="_blank" 
+                    class="btn-sm-bukti">
+                      <i class="fa-solid fa-receipt"></i>
+                      Lihat Bukti
                   </a>
 
                 <?php endif; ?>

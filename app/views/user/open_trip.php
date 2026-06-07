@@ -8,6 +8,7 @@
     <title>Open Trip | Lampung Trip</title>
 
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body class="open-trip">
@@ -17,78 +18,92 @@
         <h2>Lampung Trip</h2>
 
         <div>
+            <a href="<?= BASE_URL ?>user/index">
+                <i class="fa-solid fa-house"></i> Beranda
+            </a>
 
-            <a href="<?= BASE_URL ?>user/index">Beranda</a>
-            <a href="<?= BASE_URL ?>user/destinasi">Destinasi</a>
-            <a class="active" href="<?= BASE_URL ?>user/opentrip">Open Trip</a>
-            <a href="<?= BASE_URL ?>user/riwayat">Riwayat</a>
-            <a href="<?= BASE_URL ?>auth/logout">Logout</a>
+            <a href="<?= BASE_URL ?>user/destinasi">
+                <i class="fa-solid fa-location-dot"></i> Destinasi
+            </a>
 
+            <a class="active" href="<?= BASE_URL ?>user/opentrip">
+                <i class="fa-solid fa-users"></i> Open Trip
+            </a>
+
+            <a href="<?= BASE_URL ?>user/riwayat">
+                <i class="fa-solid fa-clock-rotate-left"></i> Riwayat
+            </a>
+
+            <a href="<?= BASE_URL ?>auth/logout">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
         </div>
 
     </div>
 
     <div class="container">
 
-        <?php if (!empty($open_trips)): ?>
+    <?php if (!empty($open_trips)): ?>
 
-            <?php foreach ($open_trips as $t): ?>
+        <?php foreach ($open_trips as $t): ?>
 
-                <div class="card">
+            <div class="card">
 
-                    <img src="<?= BASE_URL ?>assets/img/<?= htmlspecialchars($t['foto']) ?>" alt="gambar"
-                        onerror="this.src='<?= BASE_URL ?>assets/img/pahawang.png'">
+                <img src="<?= BASE_URL ?>assets/img/<?= htmlspecialchars($t['foto']) ?>" alt="gambar"
+                    onerror="this.src='<?= BASE_URL ?>assets/img/pahawang.png'">
 
-                    <div class="card-body">
+                <div class="card-body">
 
-                        <h3>
-                            <?= htmlspecialchars($t['nama']) ?>
-                        </h3>
+                    <h3>
+                        <?= htmlspecialchars($t['nama']) ?>
+                    </h3>
 
-                        <p>
-                            <?= date('d F Y', strtotime($t['tanggal'])) ?>
-                        </p>
+                    <p>
+                        <i class="fa-solid fa-calendar-days icon"></i>
+                        <?= date('d F Y', strtotime($t['tanggal'])) ?>
+                    </p>
 
-                        <p class="price">
-                            Rp <?= number_format($t['harga'], 0, ',', '.') ?>
-                            /orang
-                        </p>
+                    <p class="price">
+                        <i class="fa-solid fa-money-bill-wave icon"></i>
+                        Rp <?= number_format($t['harga'], 0, ',', '.') ?> /orang
+                    </p>
 
-                        <p class="kuota">
-                            Kuota:
-                            <?= htmlspecialchars($t['peserta_terdaftar']) ?> /
-                            <?= htmlspecialchars($t['kuota']) ?>
-                        </p>
+                    <p class="kuota">
+                        <i class="fa-solid fa-user-group icon"></i>
+                        Kuota: <?= htmlspecialchars($t['peserta_terdaftar']) ?> / <?= htmlspecialchars($t['kuota']) ?>
+                    </p>
 
-                        <?php if ($t['status'] == 'penuh'): ?>
+                    <?php if ($t['status'] == 'penuh'): ?>
 
-                            <button class="btn" disabled>
-                                Trip Penuh
-                            </button>
+                        <button class="btn" disabled>
+                            <i class="fa-solid fa-circle-xmark"></i>
+                            Trip Penuh
+                        </button>
 
-                        <?php else: ?>
+                    <?php else: ?>
 
-                            <a class="btn" href="<?= BASE_URL ?>user/detailtrip?id=<?= $t['id'] ?>">
-                                Lihat Detail
-                            </a>
+                        <a class="btn" href="<?= BASE_URL ?>user/detailtrip?id=<?= $t['id'] ?>">
+                            Lihat Detail
+                        </a>
 
-                        <?php endif; ?>
-
-                    </div>
+                    <?php endif; ?>
 
                 </div>
 
-            <?php endforeach; ?>
+            </div>
 
-        <?php else: ?>
+        <?php endforeach; ?>
 
-            <p style="text-align:center; width:100%;">
-                Open trip tidak ditemukan.
-            </p>
+    <?php else: ?>
 
-        <?php endif; ?>
+        <p style="text-align:center; width:100%;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Open trip tidak ditemukan.
+        </p>
 
-    </div>
+    <?php endif; ?>
+
+</div>
 
 </body>
 

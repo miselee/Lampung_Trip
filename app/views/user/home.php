@@ -3,12 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Home User</title>
-
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body class="user">
@@ -18,13 +16,25 @@
         <h2>Lampung Trip</h2>
 
         <div>
+            <a class="active" href="<?= BASE_URL ?>user/index">
+                <i class="fa-solid fa-house"></i> Beranda
+            </a>
 
-            <a class="active" href="<?= BASE_URL ?>user/index">Beranda</a>
-            <a href="<?= BASE_URL ?>user/destinasi">Destinasi</a>
-            <a href="<?= BASE_URL ?>user/opentrip">Open Trip</a>
-            <a href="<?= BASE_URL ?>user/riwayat">Riwayat</a>
-            <a href="<?= BASE_URL ?>auth/logout">Logout</a>
+            <a href="<?= BASE_URL ?>user/destinasi">
+                <i class="fa-solid fa-location-dot"></i> Destinasi
+            </a>
 
+            <a href="<?= BASE_URL ?>user/opentrip">
+                <i class="fa-solid fa-users"></i> Open Trip
+            </a>
+
+            <a href="<?= BASE_URL ?>user/riwayat">
+                <i class="fa-solid fa-clock-rotate-left"></i> Riwayat
+            </a>
+
+            <a href="<?= BASE_URL ?>auth/logout">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
         </div>
 
     </div>

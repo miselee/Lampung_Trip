@@ -7,6 +7,8 @@
     <title>Riwayat | Lampung Trip</title>
 
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body class="riwayat-page">
@@ -15,11 +17,25 @@
         <h2>Lampung Trip</h2>
 
         <div>
-            <a href="<?= BASE_URL ?>user/index">Beranda</a>
-            <a href="<?= BASE_URL ?>user/destinasi">Destinasi</a>
-            <a href="<?= BASE_URL ?>user/opentrip">Open Trip</a>
-            <a class="active" href="<?= BASE_URL ?>user/riwayat">Riwayat</a>
-            <a href="<?= BASE_URL ?>auth/logout">Logout</a>
+            <a href="<?= BASE_URL ?>user/index">
+                <i class="fa-solid fa-house"></i> Beranda
+            </a>
+
+            <a href="<?= BASE_URL ?>user/destinasi">
+                <i class="fa-solid fa-location-dot"></i> Destinasi
+            </a>
+
+            <a href="<?= BASE_URL ?>user/opentrip">
+                <i class="fa-solid fa-users"></i> Open Trip
+            </a>
+
+            <a class="active" href="<?= BASE_URL ?>user/riwayat">
+                <i class="fa-solid fa-clock-rotate-left"></i> Riwayat
+            </a>
+
+            <a href="<?= BASE_URL ?>auth/logout">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
         </div>
     </div>
 
@@ -43,24 +59,30 @@
                         </h2>
 
                         <p class="tanggal">
-                            <?= date(
-                                'd M Y',
-                                strtotime($r['created_at'])
-                            ) ?>
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <?= date('d M Y', strtotime($r['created_at'])) ?>
                         </p>
                     </div>
                 </div>
 
                 <div class="riwayat-info">
                     <div class="info-box">
-                        <span>Nama</span>
+                        <span>
+                            <i class="fa-solid fa-user"></i>
+                            Nama
+                        </span>
+
                         <strong>
                             <?= htmlspecialchars($r['nama_lengkap']) ?>
                         </strong>
                     </div>
 
                     <div class="info-box">
-                        <span>Jumlah Orang</span>
+                        <span>
+                            <i class="fa-solid fa-users"></i>
+                            Jumlah Orang
+                        </span>
+
                         <strong>
                             <?= $r['jumlah_orang'] ?> Orang
                         </strong>
@@ -70,7 +92,10 @@
                 <div class="status-wrapper">
                     <div class="status-item">
 
-                        <span>Pendaftaran</span>
+                        <span>
+                            <i class="fa-solid fa-file-signature"></i>
+                            Pendaftaran
+                        </span>
 
                         <?php if($r['status']=="menunggu"): ?>
 
@@ -95,7 +120,10 @@
 
 
                     <div class="status-item">
-                        <span>Pembayaran</span>
+                        <span>
+                            <i class="fa-solid fa-credit-card"></i>
+                            Pembayaran
+                        </span>
 
                         <?php if($r['status_pembayaran']=="belum_upload"): ?>
 
@@ -130,7 +158,10 @@
 
                 <div class="alasan-box">
 
-                    <b>Alasan Penolakan:</b>
+                    <b>
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        Alasan Penolakan:
+                    </b>
 
                     <p>
                         <?= htmlspecialchars($r['alasan_tolak']) ?>
@@ -146,8 +177,8 @@
                 class="btn-upload"
                 href="<?= BASE_URL ?>user/detailtrip?id=<?= $r['open_trip_id'] ?>&show_payment=1&pendaftaran_id=<?= $r['id'] ?>">
 
+                <i class="fa-solid fa-cloud-arrow-up"></i>
                 Upload Bukti
-
                 </a>
 
                 <?php elseif(
@@ -159,6 +190,7 @@
                 class="btn-upload"
                 href="<?= BASE_URL ?>user/detailtrip?id=<?= $r['open_trip_id'] ?>&show_payment=1&pendaftaran_id=<?= $r['id'] ?>">
 
+                <i class="fa-solid fa-pen-to-square"></i>
                 Ubah Bukti
 
                 </a>

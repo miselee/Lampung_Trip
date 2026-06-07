@@ -43,6 +43,18 @@ body{
     text-decoration:none;
     color:black;
     font-size:16px;
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.navbar a i{
+    font-size:15px;
+}
+
+.navbar a:hover{
+    color:#2d9cdb;
 }
 
 .navbar a.active{
@@ -1938,8 +1950,20 @@ button:disabled {
     object-fit: cover;
 }
 
-.open-trip .card-body {
-    padding: 15px;
+.open-trip .card-body h3{
+    margin: 0 0 10px;
+}
+
+.open-trip .card-body p{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:6px 0;
+}
+
+.open-trip .card-body i{
+    width: 20px;
+    text-align: center;
 }
 
 .open-trip .price {
@@ -2289,7 +2313,15 @@ button:disabled {
     font-size: 14px;
     font-weight: 500;
     border-left: 3px solid transparent;
-    display: block;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-item i {
+    width: 18px;
+    text-align: center;
 }
 
 .menu-item:hover,
@@ -2300,7 +2332,7 @@ button:disabled {
 }
 
 .menu-badge {
-    float: right;
+    margin-left: auto;
     background: #fc5c65;
     color: #fff;
     font-size: 11px;

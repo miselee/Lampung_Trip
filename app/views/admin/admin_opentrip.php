@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin — Open Trip | Lampung Trip</title>
   <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
@@ -13,15 +14,44 @@
   <div class="admin-wrapper">
 
     <aside class="sidebar">
-      <div class="sidebar-logo">Lampung Trip</div>
-      <nav class="sidebar-menu">
-        <a href="<?= BASE_URL ?>admin/index" class="menu-item">Overview</a>
-        <a href="<?= BASE_URL ?>admin/destinasi" class="menu-item">Destinasi</a>
-        <a href="<?= BASE_URL ?>admin/opentrip" class="menu-item active">Open Trip</a>
-        <a href="<?= BASE_URL ?>admin/pendaftaran" class="menu-item">Pendaftaran <span class="menu-badge"><?= $stat_pending ?? 0 ?></span></a>
-        <a href="<?= BASE_URL ?>admin/pembayaran" class="menu-item">Pembayaran</a>
-      </nav>
-      <a href="<?= BASE_URL ?>auth/logout" class="sidebar-logout">Logout</a>
+        <div class="sidebar-logo">
+            Lampung Trip
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="<?= BASE_URL ?>admin/index" class="menu-item">
+                <i class="fa-solid fa-chart-line"></i>
+                Overview
+            </a>
+
+            <a href="<?= BASE_URL ?>admin/destinasi" class="menu-item">
+                <i class="fa-solid fa-location-dot"></i>
+                Destinasi
+            </a>
+
+            <a href="<?= BASE_URL ?>admin/opentrip" class="menu-item active">
+                <i class="fa-solid fa-route"></i>
+                Open Trip
+            </a>
+
+            <a href="<?= BASE_URL ?>admin/pendaftaran" class="menu-item">
+                <i class="fa-solid fa-user-check"></i>
+                Pendaftaran
+                <span class="menu-badge"><?= $stat_pending ?? 0 ?></span>
+            </a>
+
+            <a href="<?= BASE_URL ?>admin/pembayaran" class="menu-item">
+                <i class="fa-solid fa-credit-card"></i>
+                Pembayaran
+            </a>
+
+        </nav>
+
+        <a href="<?= BASE_URL ?>auth/logout" class="sidebar-logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </a>
     </aside>
 
     <main class="admin-main">
