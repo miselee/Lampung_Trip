@@ -1950,38 +1950,29 @@ button:disabled {
     object-fit: cover;
 }
 
+.open-trip .card-body{
+    padding: 15px;
+}
+
 .open-trip .card-body h3{
-    margin: 0 0 10px;
+    margin-bottom: 12px;
 }
 
 .open-trip .card-body p{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin:6px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
 }
 
-.open-trip .card-body i{
-    width: 20px;
-    text-align: center;
-}
-
-.open-trip .price {
-    font-weight: bold;
-}
-
-.open-trip .kuota {
-    color: green;
-}
-
-.open-trip .btn {
+.open-trip .btn{
     display: block;
     text-align: center;
     background: #2d9cdb;
     color: white;
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
-    margin-top: 10px;
+    margin-top: 15px;
     text-decoration: none;
 }
 
