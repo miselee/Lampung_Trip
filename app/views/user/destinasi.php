@@ -37,8 +37,11 @@
     </div>
 
     <div class="search">
-        <form method="GET" action="<?= BASE_URL ?>index.php?url=user/destinasi">
-            <input type="text" name="q" id="search" placeholder="Cari destinasi wisata..."
+        <form method="GET" action="<?= BASE_URL ?>user/destinasi">
+            <input type="text"
+                name="q"
+                id="search"
+                placeholder="Cari destinasi wisata..."
                 value="<?= htmlspecialchars($search ?? '') ?>">
         </form>
     </div>
