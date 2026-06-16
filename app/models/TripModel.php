@@ -6,8 +6,13 @@ class TripModel
     public static function getAllForAdmin(mysqli $conn): array
     {
         $res = $conn->query("
-            SELECT * FROM view_open_trip_admin
-            ORDER BY created_at DESC
+            SELECT
+                ot.*,
+                d.nama AS nama_destinasi
+            FROM open_trip ot
+            LEFT JOIN destinasi d
+                ON ot.destinasi_id = d.id
+            ORDER BY ot.created_at DESC
         ");
 
         return $res ? $res->fetch_all(MYSQLI_ASSOC) : [];
@@ -16,8 +21,14 @@ class TripModel
     public static function getAllAktif(mysqli $conn): array
     {
         $res = $conn->query("
-            SELECT * FROM view_open_trip_aktif
-            ORDER BY tanggal ASC
+            SELECT
+                ot.*,
+                d.lokasi AS lokasi_destinasi
+            FROM open_trip ot
+            LEFT JOIN destinasi d
+                ON ot.destinasi_id = d.id
+            WHERE ot.status IN ('aktif', 'penuh')
+            ORDER BY ot.tanggal ASC
         ");
 
         return $res ? $res->fetch_all(MYSQLI_ASSOC) : [];
@@ -26,10 +37,14 @@ class TripModel
     public static function getAktifTerbaru(mysqli $conn, int $limit = 4): array
     {
         $stmt = $conn->prepare("
-            SELECT *
-            FROM view_open_trip_aktif
-            WHERE status = 'aktif'
-            ORDER BY tanggal ASC
+            SELECT
+                ot.*,
+                d.lokasi AS lokasi_destinasi
+            FROM open_trip ot
+            LEFT JOIN destinasi d
+                ON ot.destinasi_id = d.id
+            WHERE ot.status = 'aktif'
+            ORDER BY ot.tanggal ASC
             LIMIT ?
         ");
 
@@ -46,9 +61,14 @@ class TripModel
     public static function getById(mysqli $conn, int $id): ?array
     {
         $stmt = $conn->prepare("
-            SELECT *
-            FROM view_trip_detail
-            WHERE id = ?
+            SELECT
+                ot.*,
+                d.nama AS nama_destinasi,
+                d.lokasi AS lokasi_destinasi
+            FROM open_trip ot
+            LEFT JOIN destinasi d
+                ON ot.destinasi_id = d.id
+            WHERE ot.id = ?
             LIMIT 1
         ");
 
@@ -135,7 +155,7 @@ class TripModel
         ");
 
         $stmt->bind_param(
-            'sisddiiss',
+            'sisddisss',
             $data['nama'],
             $data['destinasi_id'],
             $data['tanggal'],

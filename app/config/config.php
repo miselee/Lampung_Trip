@@ -1,3 +1,3 @@
 <?php
-define('BASE_URL', 'http://localhost/Lampung_Trip/');
+define('BASE_URL', 'https://lampungtrip.ifree.page/');
 ?>

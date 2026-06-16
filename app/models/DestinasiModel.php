@@ -6,8 +6,16 @@ class DestinasiModel
     public static function getAll(mysqli $conn): array
     {
         $res = $conn->query("
-            SELECT *
-            FROM view_destinasi_all
+            SELECT
+                id,
+                nama,
+                lokasi,
+                kategori,
+                foto,
+                deskripsi,
+                rating,
+                created_at
+            FROM destinasi
             ORDER BY created_at DESC
         ");
 
@@ -17,8 +25,17 @@ class DestinasiModel
     public static function getRekomendasi(mysqli $conn, int $limit = 5): array
     {
         $stmt = $conn->prepare("
-            SELECT *
-            FROM view_destinasi_rekomendasi
+            SELECT
+                id,
+                nama,
+                lokasi,
+                kategori,
+                foto,
+                deskripsi,
+                rating,
+                created_at
+            FROM destinasi
+            ORDER BY rating DESC
             LIMIT ?
         ");
 

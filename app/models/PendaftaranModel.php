@@ -7,10 +7,20 @@ class PendaftaranModel
         if ($status_filter !== 'semua') {
 
             $stmt = $conn->prepare("
-                SELECT *
-                FROM view_pendaftaran_admin
-                WHERE status = ?
-                ORDER BY created_at DESC
+                SELECT
+                    p.*,
+                    u.nama AS nama_user,
+                    u.email,
+                    ot.nama AS nama_trip,
+                    ot.harga,
+                    ot.tanggal
+                FROM pendaftaran p
+                JOIN users u
+                    ON p.user_id = u.id
+                JOIN open_trip ot
+                    ON p.open_trip_id = ot.id
+                WHERE p.status = ?
+                ORDER BY p.created_at DESC
             ");
 
             $stmt->bind_param('s', $status_filter);
@@ -24,14 +34,24 @@ class PendaftaranModel
         }
 
         $res = $conn->query("
-            SELECT *
-            FROM view_pendaftaran_admin
-            ORDER BY created_at DESC
+            SELECT
+                p.*,
+                u.nama AS nama_user,
+                u.email,
+                ot.nama AS nama_trip,
+                ot.harga,
+                ot.tanggal
+            FROM pendaftaran p
+            JOIN users u
+                ON p.user_id = u.id
+            JOIN open_trip ot
+                ON p.open_trip_id = ot.id
+            ORDER BY p.created_at DESC
         ");
 
         return $res ? $res->fetch_all(MYSQLI_ASSOC) : [];
     }
-
+    
     public static function getTerbaru(mysqli $conn, int $limit = 5): array
     {
         $stmt = $conn->prepare("
@@ -55,10 +75,19 @@ class PendaftaranModel
     public static function getByIdAndUser(mysqli $conn, int $id, int $user_id): ?array
     {
         $stmt = $conn->prepare("
-            SELECT *
-            FROM view_pendaftaran_detail
-            WHERE id = ?
-            AND user_id = ?
+            SELECT
+                p.*,
+                o.nama AS nama_trip,
+                o.harga,
+                o.tanggal,
+                py.status AS status_pembayaran
+            FROM pendaftaran p
+            JOIN open_trip o
+                ON p.open_trip_id = o.id
+            LEFT JOIN pembayaran py
+                ON py.pendaftaran_id = p.id
+            WHERE p.id = ?
+            AND p.user_id = ?
             LIMIT 1
         ");
 
@@ -137,10 +166,10 @@ class PendaftaranModel
     }
 
     public static function countByStatus(mysqli $conn, string $status): int
-    {
+	{
         $stmt = $conn->prepare("
-            SELECT total
-            FROM view_count_pendaftaran_status
+            SELECT COUNT(*) AS total
+            FROM pendaftaran
             WHERE status = ?
         ");
 
@@ -153,14 +182,20 @@ class PendaftaranModel
         $stmt->close();
 
         return (int)($result['total'] ?? 0);
-    }
+	}
 
     public static function countBulanIni(mysqli $conn): int
     {
         $res = $conn->query("
-            SELECT total
-            FROM view_pendaftaran_bulan_ini
+            SELECT COUNT(*) AS total
+            FROM pendaftaran
+            WHERE MONTH(created_at) = MONTH(NOW())
+            AND YEAR(created_at) = YEAR(NOW())
         ");
+
+        if (!$res) {
+            return 0;
+        }
 
         $data = $res->fetch_assoc();
 

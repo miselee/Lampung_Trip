@@ -1,9 +1,9 @@
 <?php
 
-$host     = "localhost";
-$username = "root";
-$password = "";
-$database = "lampungtrip";
+$host     = "sql200.infinityfree.com";
+$username = "if0_42194397";
+$password = "l4mpungtrip";
+$database = "if0_42194397_lampungtrip";
 
 $conn = new mysqli($host, $username, $password, $database);
 

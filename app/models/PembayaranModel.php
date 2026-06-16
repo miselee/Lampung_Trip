@@ -6,9 +6,21 @@ class PembayaranModel
     public static function getAll(mysqli $conn): array
     {
         $res = $conn->query("
-            SELECT *
-            FROM view_pembayaran_admin
-            ORDER BY created_at DESC
+            SELECT
+                py.*,
+                u.nama AS nama_user,
+                ot.nama AS nama_trip,
+                ot.harga,
+                pd.jumlah_orang,
+                pd.nama_lengkap
+            FROM pembayaran py
+            JOIN users u
+                ON py.user_id = u.id
+            JOIN open_trip ot
+                ON py.open_trip_id = ot.id
+            JOIN pendaftaran pd
+                ON py.pendaftaran_id = pd.id
+            ORDER BY py.created_at DESC
         ");
 
         return $res ? $res->fetch_all(MYSQLI_ASSOC) : [];
@@ -129,20 +141,39 @@ class PembayaranModel
     public static function countMenunggu(mysqli $conn): int
     {
         $res = $conn->query("
-            SELECT total
-            FROM view_pembayaran_menunggu
+            SELECT COUNT(*) AS total
+            FROM pembayaran
+            WHERE status = 'menunggu'
         ");
 
-        return (int)($res->fetch_assoc()['total'] ?? 0);
+        if (!$res) {
+            return 0;
+        }
+
+        $row = $res->fetch_assoc();
+
+        return (int)($row['total'] ?? 0);
     }
 
     public static function getMenunggu(mysqli $conn, int $limit = 5): array
     {
         $stmt = $conn->prepare("
-            SELECT *
-            FROM view_pembayaran_admin
-            WHERE status = 'menunggu'
-            ORDER BY created_at DESC
+            SELECT
+                py.*,
+                u.nama AS nama_user,
+                ot.nama AS nama_trip,
+                ot.harga,
+                pd.jumlah_orang,
+                pd.nama_lengkap
+            FROM pembayaran py
+            JOIN users u
+                ON py.user_id = u.id
+            JOIN open_trip ot
+                ON py.open_trip_id = ot.id
+            JOIN pendaftaran pd
+                ON py.pendaftaran_id = pd.id
+            WHERE py.status = 'menunggu'
+            ORDER BY py.created_at DESC
             LIMIT ?
         ");
 
